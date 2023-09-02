@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.product {
+  font-size: 20px;
+  /* margin dite pari nai */
+  border: 5px solid black;
+  width: 820px;
+  margin: 0 auto;
+}
+
+.cart-heading {
+  font-size: 26px;
+  display: block;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: aliceblue;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.price {
+  padding: 10px 0;
+}
+.shipping-type {
+  text-transform: uppercase;
+  color: rgb(115, 115, 108);
+  margin-bottom: 20px;
+}
+
+.shopping-details {
+  padding: 10px 0;
+}
+.product-heading {
+  font-weight: bold;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+.btn-cart {
+  background-color: black;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  padding: 15px;
+  cursor: pointer;
+  border: 0px;
+  width: 100%;
+  border-top: 4px solid black;
+}
+.btn-cart:hover {
+  color: aliceblue;
+}
+
+.more-info:link,
+.more-info:visited {
+  color: black;
+  margin-bottom: 30px;
+  display: inline-block;
+  /* a elemnts is inline elements on inline elements top and margin bottom is not applied */
+}
+
+.more-info:hover,
+.more-info:active {
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.detail-list {
+  list-style: square;
+  margin-left: 20px;
+}
+.detail-list li {
+  margin-bottom: 10px;
+}
+
+.color {
+  background-color: rgb(223, 0, 0);
+  height: 22px;
+  width: 22px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.color-blue {
+  background-color: blue;
+}
+.color-black {
+  background-color: black;
+}
+
+.color-purple {
+  background-color: purple;
+}
+
+.color-red {
+  background-color: red;
+}
+
+.color-cyan {
+  background-color: cyan;
+}
+
+.color-violet {
+  background-color: violet;
+}
+
+.color-green {
+  background-color: green;
+}

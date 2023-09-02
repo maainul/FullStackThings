@@ -1,0 +1,25 @@
+.container {
+  font-size: 20px;
+  /* margin dite pari nai */
+}
+
+.cart-heading {
+  font-size: 26px;
+  display: block;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.price {
+  padding: 10px 0;
+}
+.shipping-type {
+}
+
+.shopping-details {
+  padding: 10px 0;
+}
+.product-heading {
+  font-weight: bold;
+  padding: 10px 0;
+}

@@ -1,0 +1,2 @@
+1. Each page can have one h1 tag. Though it will not create any problem in code but it is goood practice.
+2. Without href in a attribute link will not created.
