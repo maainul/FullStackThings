@@ -8,6 +8,8 @@
   border: 5px solid black;
   width: 820px;
   margin: 0 auto;
+  position: relative;
+  margin-top: 30px;
 }
 
 .cart-heading {
@@ -109,4 +111,19 @@
 
 .color-green {
   background-color: green;
+}
+
+.sale {
+  text-transform: uppercase;
+  background-color: red;
+  padding: 7px 15px;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  /* width: 40px; */
+  /* text-align: center; */
+  font-size: 12px;
+  position: absolute;
+  top: -17px;
+  left: -34px;
 }
