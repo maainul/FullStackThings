@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: sans-serif;
+    line-height: 1.8;
+}
+.main-article{
+    border: 5px solid black;
+}
+
+.article-header{
+    text-align: center;
+    text-transform: uppercase;
+    background-color: thistle;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.article-price{
+    font-weight: bold;
+}
+.article-shipping-info{
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.article-more-info:link,.article-more-info:visited {
+    color: black;
+}
+.article-more-info:hover, .article-more-info:active{
+    text-decoration: none;
+}
+.article-product-header{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.article-ul{
+    list-style: square;
+    margin-left: 50px;
+}
+
+.add-to-cart-btn{
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+    width: 100%;
+    margin-bottom: 0;
+    padding-top: 8px;
+    padding-bottom: 3px;
+}
+
+.add-to-cart-btn:hover{
+    color: #000; 
+    background-color: white;
+}
+
+.container{
+    margin: 50px auto;
+    width: 1200px;
+    
+}
+.container{
+    position: relative;
+}
+
+.container::before{
+    content: "SALE";
+    background-color: red;
+    padding: 5px 15px;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+.colors{
+    margin: 10px;
+    display: inline-block;
+}
+
+.color1{
+    background-color: red;
+    padding: 10px;
+    display: inline-block;
+}
+.color2{
+    background-color: rgb(255, 251, 0);
+    padding: 10px;
+    display: inline-block;
+}
+.color3{
+    background-color: rgb(0, 255, 85);
+    padding: 10px;
+    display: inline-block;
+}
+.color4{
+    background-color: rgb(111, 0, 255);
+    padding: 10px;
+    display: inline-block;
+}
+.color5{
+    background-color: rgb(0, 204, 255);
+    padding: 10px;
+    display: inline-block;
+}
+
+.color6{
+    background-color: red;
+    padding: 10px;
+    display: inline-block;
+}
+/* 
+.article-price{
+    float: left ;
+}
+
+.article-shipping-info{
+    float: right;
+} */
+
+.product-img{
+    float: left;
+
+}
+
+.price-and-shipping{
+    float: left;
+    width: 400;
+    background-color: rebeccapurple;
+    padding-left: 10px;
+}
+
+.product-details{
+    float: left;
+    width: 400;
+    background-color: red;
+    
+}
+.article-price{
+    float: left;
+    background-color: aqua;
+}
+.article-shipping-info{
+float: right;
+background-color: brown;    
+}
+/* .clearfix{
+    clear: both;
+    content: '';
+    display: block;
+} */

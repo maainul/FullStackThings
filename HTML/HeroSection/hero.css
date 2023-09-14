@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: "Rubik",sans-serif;
+    color: #444;
+}
+
+nav{
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+h1{
+    font-size: 52px;
+    margin-bottom: 32px;
+    margin-top: 32px;
+
+}
+
+p{
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+}
+
+.btn:link,.btn:visited{
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    display: inline-block;
+    border-radius: 9px;
+}
+
+h2{
+    font-size: 44px;
+    margin-bottom: 48px;
+}
+section{
+    padding: 96px 0;
+    background-color: #f7f7f7;
+}
+
+.container{
+    margin: 0 auto;
+    width: 1200px;
+}
+
+header{
+    height: 100vh;
+    position: relative;
+}
+
+.header-container{
+    width: 1200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header-inner{
+    width: 50%;
+}

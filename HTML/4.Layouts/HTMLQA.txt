@@ -1,0 +1,38 @@
+1. Each page can have one h1 tag. Though it will not create any problem in code but it is goood practice.
+2. Without href in a attribute link will not created.
+3. # for id in css
+4. dot(.) for class in css
+5. only use each id name once.can not be dupliated id name
+6.css convension is to create big name.(related-author). use hyphen
+7. Padding short hand --> top/bottom left/right (padding: 20px 40px)
+8. Two types of elements : 
+    1. Inline elelments : Margin will not fit in vertically. Top and Bottom.
+    2. Block elements : Margin will not apply left to right. left to right it will Take full space which is getting from parent.
+
+9. validator.w3.org--> Find bugs from html pages.
+10. Layout :
+    1. Page Layout
+    2. Component Layout
+
+11. Ways of Building Layout :
+    FLoat Layout : old way of building Layout
+    Flex Box : Modern Layout. 1-D row for Component layout
+    CSS GRID : 2-D Layout . perfect for big page
+
+12. size item in flex use : flex basis(like width) --> flex-basis:100px;
+13. Suppose you have written 200px in flex-basis if space is not there then
+according to the space in container it will take same space all the Component
+even it is not 200.let's say all elements will take 140px
+14. flex-grow to 1 then all space will be evenly divided..
+suppose your container is 1000px then you have 5 elements what will happen.and you have 100px
+empty space then all elements will take 20px.(Video -055) 
+15. flex-grow = flex
+each will take 200px space.
+Flex serial :
+    flex-grow : 0
+    flex-shrink:1;
+    flex-basis:auto 
+    flex: 0 0 200px;
+
+GRID :
+    
