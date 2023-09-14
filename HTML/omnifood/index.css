@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 html {
   /*
     font-size: 10px;
@@ -19,15 +20,18 @@ body {
   font-weight: 400;
   background-color: #fdf2e9;
 }
+
 /******************************************/
 /* GENERAL COMPONENTS */
 /******************************************/
+
 .margin-right-sm {
   margin-right: 1.6rem !important;
 }
 
 /* Original Button Design */
 /* Master Design */
+
 .btn:link,
 .btn:visited {
   font-size: 2rem;
@@ -40,20 +44,24 @@ body {
 }
 
 /* Inherited Button Design */
+
 .btn--full:link,
 .btn--full:visited {
   background-color: #e67e22;
   color: #fff;
 }
+
 .btn--full:hover,
 .btn--full:active {
   background-color: #cf711f;
 }
+
 .btn--outline:link,
 .btn--outline:visited {
   background-color: #fff;
   color: #555;
 }
+
 .btn--outline:hover,
 .btn--outline:active {
   background-color: #fdf2e9;
@@ -64,9 +72,11 @@ body {
 /******************************************/
 /* HEADER */
 /******************************************/
+
 .logo {
   height: 2.2rem;
 }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -76,6 +86,40 @@ body {
   height: 9.6rem;
   padding: 0 4.8rem;
 }
+/******************************************/
+/* NAVIGATION */
+/******************************************/
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  color: #333;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #cf711f;
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #e67e22;
+}
+
 /******************************************/
 /* HERO SECTION */
 /******************************************/
@@ -97,6 +141,7 @@ body {
 .hero-img {
   width: 100%;
 }
+
 .heading-primary {
   font-size: 4.2rem;
   font-weight: 700;
@@ -118,9 +163,11 @@ body {
   align-items: center;
   gap: 1.6rem;
 }
+
 .delivered-imgs {
   display: flex;
 }
+
 .delivered-imgs img {
   height: 4.8rem;
   width: 4.8rem;
@@ -128,9 +175,11 @@ body {
   margin-right: -1.6rem;
   border: 3px solid #fdf2e9;
 }
+
 .delivered-imgs img:last-child {
   margin-right: 0;
 }
+
 .delivered-text {
   font-size: 1.8rem;
   font-weight: 600;
