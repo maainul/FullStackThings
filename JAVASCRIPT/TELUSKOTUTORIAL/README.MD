@@ -137,9 +137,8 @@ let y = testnum++; // pre increment // 5 6
 console.log(y, testnum);
 let resultmath = Math.pow(4, 3); // 4 * 4 * 4 = 64
 console.log(resultmath);
-console.log((4 ** 4)); // 256 // 4*4*4*4
-console.log((16 * 16)); // 254
-
+console.log(4 ** 4); // 256 // 4*4*4*4
+console.log(16 * 16); // 254
 ```
 
 ## Conditional Operator
@@ -168,4 +167,21 @@ if (p > q && p > r) {
 } else {
   console.log("R is Greatest Value", r);
 }
+```
+
+## Ternary Operator
+
+```js
+let num = 4;
+let result;
+
+if (num % 2 === 0) {
+  result = "EVEN";
+} else {
+  result = "ODD";
+}
+console.log(result);
+
+result = num % 2 === 0 ? "EVEN" : "ODD";
+console.log(result);
 ```
