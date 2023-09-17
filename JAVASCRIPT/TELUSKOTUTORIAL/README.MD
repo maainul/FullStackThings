@@ -26,9 +26,9 @@ hyphen
 
 Better Way :
 Snake Case : user_name  
- Camel Case : userName
+Camel Case : userName
 
-```.js
+```js
 let num = 3;
 let username = "Mainul Hasan Anik";
 console.log(username);
@@ -51,7 +51,7 @@ Rule :
 Number + String = String
 Number - String = Number
 
-```.js
+```js
 let msg = "Mainul Hasan";
 
 let firstname = "Mainul";
@@ -101,7 +101,7 @@ console.log(xx);
 
 ## Arithmetic Operator :
 
-```.js
+```js
 let num1 = 4;
 let num2 = 2;
 
@@ -140,6 +140,32 @@ console.log(resultmath);
 console.log((4 ** 4)); // 256 // 4*4*4*4
 console.log((16 * 16)); // 254
 
+```
 
+## Conditional Operator
 
+```js
+//  1. Simple Condition
+let n = 7;
+let m = 8;
+let o = 9;
+if (n > m) {
+  console.log("N is greater", n);
+} else {
+  console.log("M is Greater", m);
+}
+
+// 2. 3 Condition
+
+let p = 505;
+let q = 66;
+let r = 7;
+
+if (p > q && p > r) {
+  console.log("P is Greater Value", p);
+} else if (q > r) {
+  console.log("Q is Greatest Value", q);
+} else {
+  console.log("R is Greatest Value", r);
+}
 ```
