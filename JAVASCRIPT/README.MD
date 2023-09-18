@@ -51,7 +51,7 @@ Rule :
 Number + String = String
 Number - String = Number
 
-```.js
+```js
 let msg = "Mainul Hasan";
 
 let firstname = "Mainul";
@@ -101,7 +101,7 @@ console.log(xx);
 
 ## Arithmetic Operator :
 
-```.js
+```js
 let num1 = 4;
 let num2 = 2;
 
@@ -137,9 +137,45 @@ let y = testnum++; // pre increment // 5 6
 console.log(y, testnum);
 let resultmath = Math.pow(4, 3); // 4 * 4 * 4 = 64
 console.log(resultmath);
-console.log((4 ** 4)); // 256 // 4*4*4*4
-console.log((16 * 16)); // 254
+console.log(4 ** 4); // 256 // 4*4*4*4
+console.log(16 * 16); // 254
+```
 
+## Template Literals
 
+```js
+let num1 = 7;
+let num2 = 4;
+let result = num1 + num2;
 
+console.log("The addition of num1 and num2 is = ", result);
+
+console.log("The addition of " + num1 + " and " + num2 + " is = ", result); // The addition of 7 and 4 is =  11
+
+// using template literals
+console.log(`The addition of ${num1} and ${num2} is ${result}`); // The addition of 7 and 4 is 11 11
+```
+## While and For Loop:
+```js
+let n = 1;
+while (n <= 7) {
+  console.log("HI");
+  n += 1;
+}
+
+for (let i = 1; i <= 5; i++) {
+  console.log(`HI ${i}`);
+}
+/*
+for (;;) {
+  console.log(hi);
+}
+*/
+// While and  For Lop
+
+let num = 564782;
+while (num > 0) {
+  console.log(num % 10);
+  num = parseInt(num / 10);
+}
 ```
