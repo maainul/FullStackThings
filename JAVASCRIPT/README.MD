@@ -155,7 +155,9 @@ console.log("The addition of " + num1 + " and " + num2 + " is = ", result); // T
 // using template literals
 console.log(`The addition of ${num1} and ${num2} is ${result}`); // The addition of 7 and 4 is 11 11
 ```
+
 ## While and For Loop:
+
 ```js
 let n = 1;
 while (n <= 7) {
@@ -178,4 +180,43 @@ while (num > 0) {
   console.log(num % 10);
   num = parseInt(num / 10);
 }
+```
+
+## Object:
+
+#### Objects is most important term of any programming language.Object represents the real world entity.suppose the laptop,the pen, the mobile is an objects. objects have some characteristics it is called property.
+
+```js
+
+let allien = {
+  name: "mainul",
+  age: "30",
+  experience: 2,
+};
+console.log(allien); //{ name: 'mainul', age: '30', experience: 2 }
+console.log(typeof allien); // object
+console.log(typeof allien.age); // string
+console.log(typeof allien.experience); // number
+console.log(allien["name"]); // mainul
+
+// complex object
+
+let person = {
+    uname: "mainul",
+    age: "30",
+    experience: 2,
+    laptop:{
+        cpu : '2.4hz',
+        ram:'8 GB',
+        brand:'Asus'
+    },
+  };
+  console.log(person);
+  console.log(typeof person);
+  console.log(typeof person.age);
+  console.log(typeof person.experience);
+  console.log(person['uname']);
+  console.log(person?.laptop1?.brand?.length); // to avoid error in js // if brand is not there then undefined will be print
+  delete person.age
+  console.log(person); // it will not delete it only not printed 
 ```
