@@ -220,3 +220,43 @@ let person = {
   delete person.age
   console.log(person); // it will not delete it only not printed 
 ```
+## For In Loop
+```js
+let allien = {
+  name: "mainul",
+  age: "30",
+  experience: 2,
+  laptop: {
+    cpu: "2.4hz",
+    ram: "8 GB",
+    brand: "Asus",
+  },
+};
+
+console.log(allien);
+
+for(let key in allien){
+    console.log(key, allien[key]);
+}
+
+```
+
+## Function 
+
+```js
+function greet() {
+  console.log("Hello world");
+}
+greet();
+greet();
+greet();
+greet();
+
+function greetpass(data) {
+  return data;
+}
+let str = greetpass("Mainul");
+console.log(str);
+
+
+```
