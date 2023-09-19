@@ -263,16 +263,17 @@ console.log(str);
 
 ```js
 function greetpass(data) {
-    console.log(num);
-    return data;
-  }
-  let user="Mainul"
-  let num = 5;
-  let str = greetpass(user);
-  console.log(str);
-  
+  console.log(num);
+  return data;
+}
+let user = "Mainul";
+let num = 5;
+let str = greetpass(user);
+console.log(str);
 ```
+
 # Arrow Function :
+
 ```js
 let greet = (data) => {
   return data;
@@ -280,10 +281,58 @@ let greet = (data) => {
 
 console.log(greet("Mainul"));
 
-let pass = ()=>{
-    console.log('Pass by value');
-}
+let pass = () => {
+  console.log("Pass by value");
+};
 
 pass();
+```
 
+## Methods:
+
+```js
+let laptop = {
+  cpu: "i9",
+  ram: 16,
+  brand: "HP",
+  greet: function () {
+    console.log("Hello world");
+  },
+};
+laptop.greet();
+// method : method belongs to Object./ define in an object
+// function : not belongs to object
+// actually methods or function is same
+```
+
+# This Keyword:
+
+```js
+let laptop1 = {
+  cpu: "ip",
+  ram: 16,
+  brand: "HP",
+  greet: function () {
+    let storage = 100;
+    console.log("Hello world");
+    console.log(this.cpu);
+    console.log(this.brand);
+    console.log(storage);
+  },
+};
+
+let laptop2 = {
+  cpu: "i5",
+  ram: 16,
+  brand: "HP",
+  greet: function () {
+    console.log(laptop2);
+  },
+};
+
+if (laptop1.cpu > laptop2.cpu) {
+  console.log(laptop1);
+} else {
+  console.log(laptop2);
+}
 ```
