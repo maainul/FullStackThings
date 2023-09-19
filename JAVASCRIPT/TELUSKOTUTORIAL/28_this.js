@@ -1,17 +1,13 @@
-let laptop1 = {
-  cpu: "ip",
+let laptop2 = {
+  cpu: "i7",
   ram: 16,
   brand: "HP",
-  greet: function () {
-    let storage = 100;
-    console.log("Hello world");
+  getConfig: function () {
     console.log(this.cpu);
-    console.log(this.brand);
-    console.log(storage);
   },
 };
 
-let laptop2 = {
+let laptop1 = {
   cpu: "i5",
   ram: 16,
   brand: "HP",
@@ -21,7 +17,6 @@ let laptop2 = {
       } else {
         console.log(other);
       }
-      
   },
   getConfig : function(){
     console.log(this.cpu);
