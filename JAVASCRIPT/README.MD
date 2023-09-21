@@ -340,6 +340,7 @@ if (laptop1.cpu > laptop2.cpu) {
 # Constructor :
 
 A constructor is a <b>special function</b> that creates and initializes an object instance of a class. In JavaScript, a constructor gets called when an object is created using the new keyword. The purpose of a constructor is to <b>create a new object and set values</b> for any existing object properties
+
 ```js
 // Different Way to Create objects
 // constructor in javascript:
@@ -366,9 +367,125 @@ console.log(alian2);
 console.log(alian3);
 console.log(alian4);
 console.log(alian5);
-alian1.tech="Java"
+alian1.tech = "Java";
 alian1.work();
 console.log(alian1);
+```
+
+# Arrays :
+
+```js
+let values = [5, 7, 8];
+console.log(values.length);
+
+let val = [];
+console.log(val);
+val.push(5);
+console.log(val.push(9)); // return length of an array
+console.log(val);
+console.log(val[1]);
+console.log(val.pop()); // return poped value from end
+console.log(val.shift()); // return poped value from start
+console.log(val.unshift(2)); // return add value from start
+console.log(val.splice(2)); // it will remove from index number 2 to end
+console.log(val.splice(2, 1)); // it will remove from index number 2 to end (first value is index value,
+// last one is number of value you want to remove)
+
+let data = [
+  "Mainul",
+  { tech: "js", exp: "2" },
+  2,
+  function () {
+    console.log("Hello World");
+  },
+];
+console.log(data);
+data[3](); // inside array function call.....
+
+// Loops in array
+
+let loopdata = [5, 7, 8, 9, 4];
+for (let n of loopdata) {
+  console.log(n);
+}
+console.log("##############################################");
+for (let key in loopdata) {
+  console.log(loopdata[key]);
+}
+
+// Array Destructuring
+
+let nums = [5, 7, 2, 4];
+console.log(nums);
+let [a, b, c, d] = nums;
+console.log(d);
+console.log(b);
+console.log(c);
+
+let words = "My Name is Mainul Hasan";
+console.log(words);
+let spltwrd = words.split(" ");
+let [x, y, z, m, n] = spltwrd;
+console.log(x, y);
+console.log(spltwrd);
+
+let mywrd = "My Name is Mainul Hasan Anik".split(" ");
+let [t, r, ...g] = mywrd;
+console.log(g);
+
+const numbers1 = [1, 2, 3, 4, 5];
+const numbers2 = [...numbers1, 1, 2, 6, 7, 8];
+console.log(numbers1);
+
+// this will be [1, 2, 3, 4, 5, 1, 2, 6, 7, 8]
+```
+
+## What are three dots (…) in Javascript
+
+The spread syntax is a new addition to the set of operators in JavaScript ES6. It takes in an iterable (e.g an array) and expands it into individual elements.
+
+The spread syntax is commonly used to make shallow copies of JS objects. Using this operator makes the code concise and enhances its readability.
+
+### Syntax : The spread syntax is denoted by three dots, ….
+
+```js
+let array = [...value];
+```
+
+#### 1. Copying an array
+
+```js
+let array1 = ["h", "e", "l", "l", "o"];
+let array2 = [...array1];
+console.log(array2);
+["h", "e", "l", "l", "o"]; // output
+```
+
+#### 2. Inserting the elements of one array into another
+
+```js
+let desserts = ["cake", "cookie", "donut"];
+let desserts1 = ["icecream", "flan", "frozen yoghurt", ...desserts];
+console.log(desserts);
+//Appending baked_desserts after flan
+let desserts2 = ["icecream", "flan", ...desserts, "frozen yoghurt"];
+console.log(desserts2);
+// output
+["cake", "cookie", "donut"][
+  ("icecream", "flan", "cake", "cookie", "donut", "frozen yoghurt")
+];
+```
+
+#### 3. Array to arguments
+
+```js
+function multiply(number1, number2, number3) {
+  console.log(number1 * number2 * number3);
+}
+let numbers = [1,2,3];
+multiply(...numbers);
+//Passing elements of the array as arguments to the Math Object
+let numbers = [1,2,300,-1,0,-100];
+console.log(Math.min(...numbers));
 
 ```
-# Arrays :
