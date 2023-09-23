@@ -482,21 +482,47 @@ console.log(desserts2);
 function multiply(number1, number2, number3) {
   console.log(number1 * number2 * number3);
 }
-let numbers = [1,2,3];
+let numbers = [1, 2, 3];
 multiply(...numbers);
 //Passing elements of the array as arguments to the Math Object
-let numbers = [1,2,300,-1,0,-100];
+let numbers = [1, 2, 300, -1, 0, -100];
 console.log(Math.min(...numbers));
-
 ```
+
 ## For Each Loop
+
 ```js
-let nums = [42,51,24,98,65,12];
+let nums = [42, 51, 24, 98, 65, 12];
 console.log(nums);
 // forEach operator will take one function . that function can do anything with this nums value.
 
-nums.forEach((n)=> {
-	console.log(n);
+nums.forEach((n) => {
+  console.log(n);
 });
+```
 
+## Filter Map Reducer
+
+```js
+let nums = [42, 51, 24, 98, 65, 12];
+console.log(nums);
+// forEach operator will take one function . that function can do anything with this nums value.
+nums.forEach((n) => {
+  if (n % 2 == 0) {
+    console.log(n);
+  }
+});
+let res = nums.filter((n) => n % 2 === 0);
+console.log(nums);
+console.log(res);
+// filter will filter the value.
+// from all nums it will give specific value based on condiiton
+// from that confition map each value and do some operation.
+// after operation print value.
+let nums1 = [42, 51, 24, 98, 65, 12];
+let result = nums1
+  .filter(n => n % 2 === 0)
+  .map(n=> n * 2)
+  .forEach(n => console.log(n));
+console.log(result);
 ```
