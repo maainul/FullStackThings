@@ -489,3 +489,14 @@ let numbers = [1,2,300,-1,0,-100];
 console.log(Math.min(...numbers));
 
 ```
+## For Each Loop
+```js
+let nums = [42,51,24,98,65,12];
+console.log(nums);
+// forEach operator will take one function . that function can do anything with this nums value.
+
+nums.forEach((n)=> {
+	console.log(n);
+});
+
+```
