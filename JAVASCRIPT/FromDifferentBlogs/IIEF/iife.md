@@ -239,4 +239,5 @@ console.log(UserNormalFunc.getSecret());  // returns "Likes using IIFE"
 ```
 
 <b>Conclusion:</b>
- An IIFE may not see being used a lot in regular coding projects but it is one of those things that exist and has practical use cases in the real world. You might find yourself creating projects which might be used by other developers and concepts like IIFE will definitely come in handy. You might also find a few open-source projects that extensively use concepts like closures, IIFE, function currying, composition, and many more. T
+ An IIFE may not see being used a lot in regular coding projects but it is one of those things that exist and has practical use cases in the real world. You might find yourself creating projects which might be used by other developers and concepts like IIFE will definitely come in handy. You might also find a few open-source projects that extensively use concepts like closures, IIFE, function currying, composition, and many more.
+ 
