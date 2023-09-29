@@ -8,6 +8,8 @@
 7. Object
 8. Constructor
 6. Prototype
+7. call(), apply() and bind()
+
 
 
 Javascript Foundation I
