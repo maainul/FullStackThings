@@ -4,6 +4,11 @@
 2. variable
 3. hosting
 4. this
+5. IIFE
+7. Object
+8. Constructor
+6. Prototype
+
 
 Javascript Foundation I
 
