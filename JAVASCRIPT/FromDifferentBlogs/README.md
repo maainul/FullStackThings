@@ -233,3 +233,128 @@ Appendix 2: Intermediate JavaScript
 20. Exercise: ES2023
 21. Debugging
 22. Modules
+
+
+
+
+## -------------------------------------------------------------------------------------
+
+
+### JAVASCRIPT FUNDAMENTALS
+1.	Syntax
+2.	Variables
+3.	Data Types
+4.	Number
+5.	Numeric Separator
+6.	Octal and Binary Literals
+7.	Boolean
+8.	String
+9.	Object
+10.	Primitive vs. Reference Values
+11.	Array
+
+### JAVASCRIPT OPERATORS
+1.	Arithmetic Operators
+2.	Remainder Operator
+3.	Assignment Operators
+4.	Unary Operators
+5.	Comparison Operators
+6.	Logical Operators
+7.	Logical Assignment Operators
+8.	Nullish Coalescing Operator
+9.	Exponentiation Operator
+
+### CONTROL FLOW
+1.	if
+2.	if else
+3.	if else if
+4.	Ternary Operator (:?)
+5.	switch case
+6.	while
+7.	do while
+8.	for
+9.	break
+10.	continue
+11.	Comma Operator
+
+### JAVASCRIPT FUNCTIONS
+1.	Functions
+2.	Functions are First-Class Citizens
+3.	Anonymous Functions
+4.	Understanding Pass-By-Value in JavaScript
+5.	Recursive Functions
+6.	Default Parameters
+
+### JAVASCRIPT OBJECTS
+1.	Object Methods
+2.	Constructor Functions
+3.	Prototype
+4.	Constructor/Prototype Pattern
+5.	Prototypal Inheritance
+6.	this
+7.	globalThis
+8.	Object Properties
+9.	for…in Loop
+10.	Enumerable Properties
+11.	Own Properties
+12.	Object.values()
+13.	Object.entries()
+14.	Object.is()
+15.	Factory Functions
+16.	Object Destructuring
+17.	Optional Chaining Operator
+18.	Object Literal Syntax Extensions
+
+### CLASSES
+1.	Class
+2.	Getters & Setters
+3.	Class Expressions
+4.	Computed Properties
+5.	Inheritance
+6.	new.target
+7.	Static Methods
+8.	Static Properties
+9.	Private Fields
+10.	Private Methods
+11.	instanceof Operator
+
+### ADVANCED FUNCTIONS
+1.	Function Type
+2.	The call() Method
+3.	The apply() method
+4.	The bind() Method
+5.	Closures
+6.	Immediately Invoked Function Expression (IIFE)
+7.	Returning Multiple Values
+8.	Arrow Functions
+9.	Arrow Functions: Do & Don’t
+10.	Rest Parameters
+11.	Callback
+
+### PROMISES & ASYNC/AWAIT
+1.	Promises
+2.	Promise Chaining
+3.	Promise.all()
+4.	Promise.race()
+5.	Promise.any()
+6.	Promise.allSettled()
+7.	Promise.prototype.finally()
+8.	Promise Error Handling
+9.	async/await
+
+### JAVASCRIPT MODULES
+1.	Modules
+2.	Dynamic Import
+3.	Top-level Await Modules
+4.	JAVASCRIPT ERROR HANDLING
+5.	try…catch
+6.	try…catch…finally
+7.	Throw an Exception
+8.	Optional catch Binding
+
+### JAVASCRIPT RUNTIME
+1.	Execution Context
+2.	Call Stack
+3.	Event Loop
+4.	Hoisting
+5.	Variable Scopes
