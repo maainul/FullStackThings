@@ -26,3 +26,6 @@ let add = (x, y) => {
 };
 console.log(add(10, 20)); // 30
 ```
+### When You Should Not Use Arrow Functions
+
+An arrow function doesn’t have its own this value and the arguments object. Therefore, you should not use it as an event handler, a method of an object literal, a prototype method, or when you have a function that uses the arguments object.
