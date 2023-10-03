@@ -408,18 +408,17 @@ console.log(fullName.apply(person, ["Dhaka", "Bangladesh"])); // Mary Doe Dhaka 
 
 ## Bind() :
 
-The bind() method allows an object to borrow a method from another object without copying.
-It is possible to call a function from another function.supporse you want to call introduction
-method from student2.But in student2 don't have any function introduction.How can we call.By this
-bind we can call the introduction method.
+The main deference between bind() and other method is bind() method retrurn function(exact copy of a method).
+from that method we can print the method and as well as method information
 
 ```js
+let introduction = function () {
+    console.log(this.name + " studies in grade " + this.grade + ".");
+  };
+
 const student1 = {
   name: "Jack",
   grade: "5",
-  introduction: function () {
-    console.log(this.name + " studies in grade " + this.grade + ".");
-  },
 };
 
 const student2 = {
@@ -427,20 +426,9 @@ const student2 = {
   grade: "6",
 };
 
-student1.introduction();
-student2.introduction();
+introduction.bind(student1);
+introduction.bind(student2);
 ```
-
-RESULT
-
-    Jack studies in grade 5.
-    F:\Codes\github\FullStackThings\JAVASCRIPT\FromD
-    ifferentBlogs\call_apply_bind\call_apply_bind.js
-    :33
-    student2.introduction();
-          ^
-    TypeError: student2.introduction is not a function
-
 ## Let's Use the bind() method:
 
 ```js
