@@ -456,8 +456,6 @@ result();
 
 ### Closure
 
-In JavaScript, a closure is a function that references variables in the outer scope from its inner scope. The closure preserves the outer scope inside its inner scope.
-
 A closure is a feature of JavaScript that allows inner functions to access the outer scope of a function. Closure helps in binding a function to its outer boundary and is created automatically whenever a function is created
 
 ### Lexical Scoping
