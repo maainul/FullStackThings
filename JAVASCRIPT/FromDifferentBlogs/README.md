@@ -11,6 +11,8 @@
 7. call(), apply() and bind()
 
 
+1. FUNCTIONS AND ADVANCED FUNCTION
+2. OBJECT 
 
 Javascript Foundation I
 
