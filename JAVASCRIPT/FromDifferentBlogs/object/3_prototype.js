@@ -41,3 +41,4 @@ const personnn = new Person();
 
 console.log(personnn.name);
 console.log(personnn.age);
+
