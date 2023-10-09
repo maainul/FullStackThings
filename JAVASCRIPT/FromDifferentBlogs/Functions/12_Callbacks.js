@@ -26,8 +26,54 @@ function filter(numbers,fn){
     }
     return result;
 }
+
 let numbers = [1,2,4,7,3,5,6];
 console.log(filter(numbers,isOdd));
 console.log(filter(numbers,isEven));
 
-ote that JavaScript is a single-threaded programming language. It carries asynchronous operations via the callback queue and event loop.
+// Note that JavaScript is a single-threaded programming language. It carries asynchronous operations via the callback queue and event loop.
+
+
+function mainFunction(callback){
+    console.log("Performing Operation.....");
+    // Use setTimeOut to simulate an asynchronous operation
+    setTimeout(function(){
+        callback("Operation Completed"); 
+    },5000);
+    //console.log("Print After Call back");
+    //console.log("Bye");
+}
+
+// Define the callback function
+function callbackFunction(result){
+    console.log("Result :"+ result);
+}
+
+mainFunction(callbackFunction);
+
+
+const getVar = () =>{
+    setTimeout(function () {
+        console.log('A Function that takes some time');
+    },5000)
+}
+
+const printSomething = () =>{
+    console.log('Another Function');
+}
+
+getVar();
+printSomething();
+
+// call back
+const getVarC= (callback)=>{
+    setTimeout(function(){
+        console.log('A Function that takes some time');
+        callback();
+    },10000)
+}
+const printSomethingC = ()=>{
+    console.log('Another Function');
+}
+
+getVarC(printSomethingC);

@@ -6,14 +6,15 @@ A Promise is a javascript object that links producing code and consume code.
 
 */
 // ### Syntax :
-let myPromise = new Promise(function(myResolve,myReject){
-    myResolve();
-    myReject();
+/*
+let myPromise = new Promise(function (myResolve, myReject) {
+  myResolve();
+  myReject();
 });
 
 myPromise.then(
-    function(value){},
-    function(error){}
+  function (value) {},
+  function (error) {}
 );
 // When the producing code obtains the result, it should call one of the two callbacks:
 /*
@@ -44,6 +45,7 @@ myPromise.state	    myPromise.result
 
 ### Example
 */
+/*
 function myDisplayer(some){
     document.getElementById("demo").innerHTML = some;
 }
@@ -61,3 +63,21 @@ mPromise.then(
     function(value){myDisplayer(value)},
     function(error){myDisplayer(error)}
 );
+*/
+
+/*
+let p = new Promise((resolve, reject) => {
+  let a = 1 + 2;
+  if (a == 2) {
+    resolve("Success");
+  } else {
+    reject("Failed");
+  }
+});
+
+p.then((message) => {
+  console.log("This is in the then " + message);
+}).catch((message) => {
+  console.log("This is in the catch " + message);
+});
+*/
