@@ -6,11 +6,13 @@ import MyComponent from "./MyComponent";
 function App() {
   const [text, setText] = useState("");
 
+
   return (
     <div>
-      <MyContext.Provider value={{ text, setText }}>
-        <MyComponent />
-      </MyContext.Provider>
+
+          <MyContext.Provider value={{ text, setText }}>
+            <MyComponent />
+          </MyContext.Provider>
     </div>
   );
 }

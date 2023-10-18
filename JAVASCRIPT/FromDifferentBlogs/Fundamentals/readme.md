@@ -271,3 +271,120 @@ console.log(contact.age); // undefined
 console.log(contact['phone']); // '(408)-555-9999'
 console.log(contact['email']); // 'john.doe@example.com'
 ```
+### Numbers
+JavaScript uses the number type to represent both integers and floating-point values. Technically, the JavaScript number type uses the IEEE-754 format.
+
+ES2020 introduced a new primitive type bigint representing big integer numbers with values larger than 253 – 1.
+
+```js
+let counter = 100; // Integer
+let num = 071; // Octal
+console.log(num); // 57
+// If an octal number contains a number not in the range from 0 to 7, the JavaScript engine ignores the 0 and treats the number as a decimal. For example:
+let num = 080; 
+console.log(num); // 80
+// This implicit behavior might cause issues. Therefore, ES6 introduced a new octal literal that starts with the 0o followed by a sequence of octal digits (from 0 to 7). For example:
+et num = 0o71;
+console.log(num); // 57
+// If you have an invalid number after 0o, JavaScript will issue a syntax error like this:
+let num = 0o80;
+//          ^^
+//SyntaxError: Invalid or unexpected token
+// Hexadecimal numbers start with 0x or 0X followed by any number of hexadecimal digits (0 through 9, and a through f). For example:
+let num = 0x1a;
+console.log(num); // 26
+// Floating-point numbers
+let price = 9.99;
+let tax = 0.08;
+let discount = .05; // valid but not recommeded
+// When you have a very big number, you can use e-notation. E-notation indicates a number should be multiplied by 10 raised to a given power. For example:
+let amount = 3.14e7;
+console.log(amount); // 31400000
+// The notation 3.14e7 means that take 3.14 and multiply it by 107.
+// Likewise, you can use the E-notation to represent a very small number. For example:
+let amount = 5e-7; 
+console.log(amount); // 0.0000005
+// The 5e-7 notation means that take 5 and divide it by 10,000,000.
+// Also, JavaScript automatically converts any floating-point number with at least six zeros after the decimal point into e-notation. For example:
+let amount = 0.0000005;
+console.log(amount); // 5e-7
+let amount = 0.2 + 0.1;
+console.log(amount); // 0.30000000000000004
+let pageView = 9007199254740991n; // Big Integers
+
+```
+### numeric separator
+```js
+const budget = 1000000000;
+const budget = 1_000_000_000;
+// JavaScript allows you to use numeric separators for both integer and floating-point numbers. For example:
+let amount = 120_201_123.05; // 120201123.05
+let expense = 123_450; // 123450
+let fee = 12345_00; // 1234500
+// It’s important to note that all numbers in JavaScript are floating-point numbers.
+```
+### boolean primitive type
+```js
+let isPending = false;
+let isDone = true;
+console.log(typeof(isPending)); //  boolean
+console.log(typeof(isDone)); // boolean
+
+let a = Boolean('Hi');
+console.log(a); // true
+console.log(typeof(a)); // boolean
+
+```
+### boolean vs. Boolean
+```js
+let completed = true;
+let active = new Boolean(false);
+```
+First, active is an object so you can add a property to it:
+```js
+active.primitiveValue = active.valueOf();
+console.log(active.primitiveValue); // false
+```
+However, you cannot do it with the primitive boolean variable like the completed variable:
+```js
+completed.name = 'primitive';
+console.log(completed.name); // undefined
+```
+Second, the typeof of Boolean object returns object, whereas the typeof of a primitive boolean value returns boolean.
+```js
+console.log(typeof completed); // boolean
+console.log(typeof active); // object
+```
+Third, when applying the  instanceof operator to a Boolean object, it returns true. However, it returns false if you apply the  instanceof operator to a boolean value.
+```js
+console.log(completed instanceof Boolean); // false
+console.log(active instanceof Boolean); // true
+```
+It is a good practice never to use the Boolean object because it will create much confusion, especially when using in an expression. For example:
+```js
+let falseObj = new Boolean(false);
+if (falseObj) {
+    console.log('weird part of the Boolean object');
+}
+```
+### String
+To create literal strings, you use either single quotes (') or double quotes (") like this:
+```js
+let str = 'Hi';
+let greeting = "Hello";
+```
+ES6 introduced template literals that allow you to define a string backtick (`) characters:
+```js
+let name = `John`;
+let mesage = `"I'm good". She said"`;
+let str = "Good Morning!";
+console.log(str.length);  // 13
+let str = "Hello";
+console.log(str[0]); // "H"
+let str = "Hello";
+console.log(str[str.length -1]); // "o"
+let name = 'John';
+let str = 'Hello ' + name;
+
+console.log(str); // "Hello John"
+```
