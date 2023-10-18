@@ -1,5 +1,3 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 export const MyContext = createContext("");
-export const ThemeContext = createContext("light");
-export const AuthContext = createContext(null);
 
