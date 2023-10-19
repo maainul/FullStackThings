@@ -142,3 +142,51 @@ As with any tool, there are best practices and common pitfalls to keep in mind w
 3. Use context providers sparingly: While context providers can be a powerful tool for managing global state, it's generally a good idea to use them sparingly. Instead, consider using props to pass data down through your component tree whenever possible.
 
 4. Use default values: When creating a new context, it's a good idea to provide a default value that will be used if no provider is present. This can help prevent unexpected errors and make your code more robust. Note that, for the project we did above, we used an empty string as the default value for the context object.
+
+
+## Theme Change Using Context API
+
+MyContext.js
+```js
+import { createContext } from "react";
+export const MyContext = createContext("");
+```
+Post.js
+```js
+import React from 'react'
+
+const Post = ({theme}) => {
+  return (
+    <div>
+        <h1>My Post With {theme}</h1>
+        <button>Dark</button>
+    </div>
+  )
+}
+
+export default Post
+```
+
+App.js
+```js
+import { useState } from "react";
+import "./App.css";
+
+import Post from "./Post";
+
+function App() {
+  const [theme,setTheme] = useState("light")
+  return (
+    <>
+      <Post theme={theme}/>
+    </>
+  );
+}
+
+export default App;
+
+```
+Result is 
+
+![image](https://github.com/maainul/FullStackThings/assets/37740006/ea4b4070-6bc8-4caa-95a3-57c0a23cb537)
+

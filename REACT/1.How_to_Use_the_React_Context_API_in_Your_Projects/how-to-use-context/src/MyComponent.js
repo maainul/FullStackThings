@@ -1,18 +1,15 @@
 import React, { useContext } from "react";
-import { MyContext } from "./MyContext";
+import { ThemeContext, themes } from "./context/ThemeContext";
 
 const MyComponent = () => {
-  const { text, setText } = useContext(MyContext);
-
-  const handleText = ()=>{
-    setText("Hello,World")
-  }
-
+  const { theme, handleOnClick } = useContext(ThemeContext);
   return (
     <>
-      <div>Hi there & {text}</div>
-      <button onClick={() => handleText()}>Click Me</button>
-    <hr/>
+      <h1>Theme Type - {theme}</h1>
+      <button onClick={handleOnClick}>
+        {theme === themes.dark ? "Light" : "Dark"}
+      </button>
+      <hr />
     </>
   );
 };

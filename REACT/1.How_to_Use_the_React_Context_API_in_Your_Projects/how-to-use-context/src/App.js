@@ -1,19 +1,19 @@
 import { useState } from "react";
 import "./App.css";
-import { MyContext } from "./MyContext";
-import MyComponent from "./MyComponent";
+import {ThemeContext,themes} from './context/ThemeContext'
+import Post from "./Post";
 
 function App() {
-  const [text, setText] = useState("");
+  const [theme,setTheme] = useState(themes.light)
 
 
   return (
-    <div>
-
-          <MyContext.Provider value={{ text, setText }}>
-            <MyComponent />
-          </MyContext.Provider>
-    </div>
+    <>
+    <ThemeContext.Provider value={"mainul"}>
+      <h1>light and Dark theme app</h1>
+      <Post theme={theme}/>
+    </ThemeContext.Provider>
+    </>
   );
 }
 
