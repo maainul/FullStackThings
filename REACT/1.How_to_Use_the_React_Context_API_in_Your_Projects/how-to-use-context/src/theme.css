@@ -1,0 +1,15 @@
+.dark{
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+.light{
+    background-color: blanchedalmond;
+    color: black;
+    padding: 20px;
+}
+
+body{
+    background-color: rgb(78, 196, 196);
+}

@@ -1,18 +1,21 @@
 import { useState } from "react";
 import "./App.css";
-import {ThemeContext,themes} from './context/ThemeContext'
+import { ThemeContext, themes } from "./context/ThemeContext";
 import Post from "./Post";
 
 function App() {
-  const [theme,setTheme] = useState(themes.light)
+  const [theme, setTheme] = useState(themes.light);
 
+  function handleOnClick() {
+    theme === themes.light ? setTheme(themes.dark) : setTheme(themes.light);
+  }
 
   return (
     <>
-    <ThemeContext.Provider value={"mainul"}>
-      <h1>light and Dark theme app</h1>
-      <Post theme={theme}/>
-    </ThemeContext.Provider>
+      <ThemeContext.Provider value={{ theme, handleOnClick }}>
+        <h1>light and Dark theme app</h1>
+        <Post theme={theme} />
+      </ThemeContext.Provider>
     </>
   );
 }

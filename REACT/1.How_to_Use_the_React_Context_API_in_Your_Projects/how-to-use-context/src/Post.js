@@ -1,13 +1,18 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./context/ThemeContext";
+import './theme.css'
+
+
 
 const Post = () => {
-  const theme = useContext(ThemeContext);
+  const { theme, handleOnClick } = useContext(ThemeContext);
 
   return (
     <>
       <h1>My Post With {theme}</h1>
-      <button>Dark</button>
+      <button className={`${theme === "dark" ? "light" : "dark"}`} onClick={handleOnClick}>
+        {theme === "dark" ? "Light" : "Dark"}
+      </button>
     </>
   );
 };
