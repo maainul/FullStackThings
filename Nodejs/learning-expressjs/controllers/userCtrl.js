@@ -1,3 +1,5 @@
+const UserModel = require("../models/userModel");
+
 const getUser = (req, res) => {
   res.send({
     success: true,
@@ -12,4 +14,23 @@ const addUser = (req, res) => {
     message: `Welcome to ${inputData}`,
   });
 };
-module.exports = { getUser, addUser };
+
+const createUser = async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    //create user in db
+    const user = await UserModel.
+    res.status(201).json({
+      message: "success",
+      user,
+    });
+  } catch (error) {
+    console.log(`Error In Create User Controller = ${error}`);
+    res.status(400).json({
+      message: false,
+      error,
+    });
+  }
+};
+
+module.exports = { getUser, addUser, createUser };
