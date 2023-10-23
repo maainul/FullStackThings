@@ -36,4 +36,41 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = { getUser, addUser, createUser };
+const getAllUser = async (req, res) => {
+  try {
+    const users = await UserModel.find({});
+    res.status(200).json({
+      success: true,
+      totalUsers: users.length,
+      users,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: false,
+      msg: "get all user error",
+      error: error.message,
+    });
+  }
+};
+
+const getSingleUser = async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.params.id);
+    if (user) {
+      res.status(200).json({
+        status: true,
+        user,
+      });
+    } else {
+      res.status(400).send("User Not Found");
+    }
+  } catch (error) {
+    res.status(400).json({
+      status: false,
+      msg: "get all user error",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { getUser, addUser, createUser, getAllUser, getSingleUser };
