@@ -8,19 +8,19 @@ const userSchema = mongoose.Schema(
     },
     email: {
       type: String,
-      require: [true, "email is required"],
+      required: [true, "email is required"],
       unique: true,
     },
     password: {
       type: String,
-      required: [true, "Password is required"],
+      required: [true, "password is required"],
     },
     isAdmin: {
       type: Boolean,
       default: false,
     },
   },
-  { timeStamps: true }
+  { timestamps: true }
 );
 
 const User = mongoose.model("User", userSchema);
