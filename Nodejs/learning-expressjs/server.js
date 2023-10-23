@@ -10,24 +10,7 @@ app.use(express.json()) // Parse into json data through middleware from express 
 app.use(morgan('dev'))
 
 // routes
-app.get("/", (req, res) => {
-  res.send("<h1>Welcome to the world</h1>");
-});
-
-//post
-app.post('/contact-form-normal',(req,res)=>{
-    res.send("Form Data Submitted");
-})
-
-//send through json object
-app.post("/contact-form-json", (req, res) => {
-  const {inputData} = req.body;
-    res.json({
-    success:true,
-    message:`Welcome ${inputData}`
-  });
-});
-
+app.use('/api/v1/user',require('./routes/userRoutes'))
 
 //port number
 const PORT = 5000;
