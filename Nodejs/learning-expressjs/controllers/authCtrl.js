@@ -1,43 +1,56 @@
 const { createHashPassword, comparePassword } = require("../helper/authHelper");
+const { formValidation } = require("../helper/validation");
+
 const UserModel = require("../models/userModel");
 const JWT = require("jsonwebtoken");
 
 const registerctrl = async (req, res) => {
   try {
-    const { name, email, password, isAdmin } = req.body;
+    const { name, email,answer, password, isAdmin } = req.body;
+
     //validation
+    const vdata = [];
     if (!name) {
-      return res.send({ error: "Name is Required" });
+      vdata.push("name | required");
     }
     if (!email) {
-      return res.send({ error: "Email is Required" });
+      vdata.push("email | required");
+    }
+    if (!answer) {
+      vdata.push("answer | required");
     }
     if (!password) {
-      return res.send({ error: "Password is Required" });
+      vdata.push("password | required");
     }
-    // check User
-    const existingUser = await UserModel.findOne({ email });
-    // existing user
-    if (existingUser) {
-      return res.status(200).send({
+    let validations = formValidation(vdata);
+    if (validations.length > 0) {
+      res.send(validations);
+    } else {
+      // check User
+      const existingUser = await UserModel.findOne({ email });
+      // existing user
+      if (existingUser) {
+        return res.status(200).send({
+          success: true,
+          message: "Already Register Please Login",
+        });
+      }
+      // register user
+      const toHashPassword = await createHashPassword(password);
+      //save
+      const user = await new UserModel({
+        name,
+        email,
+        answer,
+        password: toHashPassword,
+        isAdmin,
+      }).save();
+      res.status(201).send({
         success: true,
-        message: "Already Register Please Login",
+        message: "User Register Successfully",
+        user,
       });
     }
-    // register user
-    const toHashPassword = await createHashPassword(password);
-    //save
-    const user = await new UserModel({
-      name,
-      email,
-      password: toHashPassword,
-      isAdmin,
-    }).save();
-    res.status(201).send({
-      success: true,
-      message: "User Register Successfully",
-      user,
-    });
   } catch (error) {
     console.log("error", error);
     res.status(500).send({
@@ -99,6 +112,49 @@ const loginCtrl = async (req, res) => {
   }
 };
 
+const forgotPasswordCtrl = async (req, res) => {
+  try {
+    const { email, answer, newPassword } = req.body;
+    const vdata = [];
+    if (!email) {
+      vdata.push("email | required");
+    }
+    if (!answer) {
+      vdata.push("answer | required");
+    }
+    if (!newPassword) {
+      vdata.push("Password | required");
+    }
+    let validation = formValidation(vdata);
+    if (validation.length > 0) {
+      return res.send(validation);
+    } else {
+      //check
+      const user = await UserModel.findOne({ email });
+      // valiation
+      if (!user) {
+        return res.status(404).send({
+          success: false,
+          message: "Wrong Email or Answer",
+        });
+      }
+      const toHashPassword = await createHashPassword(newPassword);
+      await UserModel.findByIdAndUpdate(user._id, { password: toHashPassword });
+      res.status(200).send({
+        success: true,
+        message: "Password Reset Successfully",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Something went wrong",
+      error,
+    });
+  }
+};
+
 // Protected URL For Middleware
 const testCtrl = (req, res) => {
   console.log("Protected Route");
@@ -108,4 +164,4 @@ const testCtrl = (req, res) => {
   });
 };
 
-module.exports = { registerctrl, loginCtrl, testCtrl };
+module.exports = { registerctrl, loginCtrl, testCtrl, forgotPasswordCtrl };
