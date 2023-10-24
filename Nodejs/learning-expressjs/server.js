@@ -3,6 +3,10 @@ const express = require("express");
 const morgan = require("morgan");
 const colors = require("colors");
 const connectDB = require("./config/db");
+const dotenv = require("dotenv");
+
+//env file read
+dotenv.config();
 
 //mongodb connection
 connectDB();
@@ -10,18 +14,18 @@ connectDB();
 //rest object
 const app = express();
 
-
 //middlewares
-app.use(express.json()) // Parse into json data through middleware from express js framework
-app.use(morgan('dev'))
+app.use(express.json()); // Parse into json data through middleware from express js framework
+app.use(morgan("dev"));
 
 // routes
-app.use('/api/v1/user',require('./routes/userRoutes'))
+app.use("/api/v1/user", require("./routes/userRoutes"));
 
 //port number
-const PORT = 5000;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
-  console.log(`Server Running On ${PORT}`.bgMagenta);
+  console.log(
+    `Server Running on ${process.env.DEV_MODE} mode on ${PORT}`.bgMagenta
+  );
 });
-
