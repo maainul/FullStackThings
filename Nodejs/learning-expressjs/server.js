@@ -20,6 +20,7 @@ app.use(morgan("dev")); // enable request / URL information in the console
 
 // routes
 app.use("/api/v1/user", require("./routes/userRoutes"));
+app.use("/api/v1/auth", require("./routes/authRoutes"));
 
 //port number
 const PORT = process.env.PORT || 8080;
