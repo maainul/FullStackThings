@@ -1,5 +1,10 @@
 const express = require("express");
-const { registerctrl,loginCtrl } = require("../controllers/authCtrl");
+const {
+  registerctrl,
+  loginCtrl,
+  testCtrl,
+} = require("../controllers/authCtrl");
+const { requiredSignIn, isAdmin } = require("../middlewares/authMiddleware");
 //router object
 const router = express.Router();
 
@@ -7,6 +12,9 @@ const router = express.Router();
 router.post("/register", registerctrl);
 
 // LOGIN || METHOD POST
-router.post("/login",loginCtrl)
+router.post("/login", loginCtrl);
+
+// TEST || METHOD GET
+router.get("/test", requiredSignIn, isAdmin, testCtrl);
 
 module.exports = router;

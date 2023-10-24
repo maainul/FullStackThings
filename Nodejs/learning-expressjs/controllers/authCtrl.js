@@ -4,7 +4,7 @@ const JWT = require("jsonwebtoken");
 
 const registerctrl = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, isAdmin } = req.body;
     //validation
     if (!name) {
       return res.send({ error: "Name is Required" });
@@ -31,6 +31,7 @@ const registerctrl = async (req, res) => {
       name,
       email,
       password: toHashPassword,
+      isAdmin,
     }).save();
     res.status(201).send({
       success: true,
@@ -84,6 +85,7 @@ const loginCtrl = async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        isAdmin: user.isAdmin,
       },
       token,
     });
@@ -97,4 +99,13 @@ const loginCtrl = async (req, res) => {
   }
 };
 
-module.exports = { registerctrl, loginCtrl };
+// Protected URL For Middleware
+const testCtrl = (req, res) => {
+  console.log("Protected Route");
+  res.status(200).send({
+    success: true,
+    message: "You are In Protedted Route",
+  });
+};
+
+module.exports = { registerctrl, loginCtrl, testCtrl };
