@@ -39,3 +39,8 @@ POST /contact-form-json 200 3.762 ms - 49
 
         npm i colors
 
+
+
+Some Important Points :
+
+1. In new mongoose versions, document.remove() is deprecated. Replace remove() with deleteOne() or deleteMany(). 

@@ -73,4 +73,47 @@ const getSingleUser = async (req, res) => {
   }
 };
 
-module.exports = { getUser, addUser, createUser, getAllUser, getSingleUser };
+const updateUser = async (req, res) => {
+  const user = await UserModel.findById(req.params.id);
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+    const updatedUser = await user.save();
+    res.status(201).json({
+      success: true,
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+    });
+  } else {
+    res.status(400);
+    throw new Error("User not Found");
+  }
+};
+const deleteUser = async (req, res) => {
+  const user = await UserModel.findById(req.params.id);
+  if (user) {
+    await user.deleteOne();
+    res.status(200).json({
+      success: true,
+      message: "User Deleted",
+    });
+  } else {
+    res.status(400);
+    throw new Error("User Not Found");
+  }
+};
+
+module.exports = {
+  getUser,
+  addUser,
+  createUser,
+  getAllUser,
+  getSingleUser,
+  updateUser,
+  deleteUser,
+};
