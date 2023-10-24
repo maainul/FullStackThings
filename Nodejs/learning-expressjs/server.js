@@ -16,7 +16,7 @@ const app = express();
 
 //middlewares
 app.use(express.json()); // Parse into json data through middleware from express js framework
-app.use(morgan("dev"));
+app.use(morgan("dev")); // enable request / URL information in the console
 
 // routes
 app.use("/api/v1/user", require("./routes/userRoutes"));
