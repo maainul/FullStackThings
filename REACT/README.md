@@ -1,3 +1,9 @@
+# Important Commands
+
+    npm install -g yarn
+    npm install -g create-react-app
+    create-react-app -version
+
 # REACT BASIC TO ADVANCE
 
 ## Topics :
@@ -25,3 +31,27 @@
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/89958497-6954-4188-bd35-cd4a0573f62b)
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/4800a17f-f877-4af1-9694-524e2fdfecb8)
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/f3e9d86a-79c1-47b2-8af0-5f1af16f363f)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/30a9f7a6-2ea5-4378-9bd2-edf0c8228fb7)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/a2c083d5-0075-4206-88ba-79687c836cf1)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/8a805ef4-340d-4dce-9d51-25f055f69cf0)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/39333907-85c4-4f19-acf1-68414563d316)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/0f19fd7d-a982-4cad-b1c9-b1a22ba888e9)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/f3019162-d0f3-4a56-9c44-7419e87352da)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/f3012b47-2394-4a83-94d4-e6e40d76beee)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/92bd44b7-ec13-4498-9fce-27ea4b0319e3)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/57b675ef-5711-408f-98b4-f11b402b5606)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/e90b1735-71e2-4053-bbc0-66da5d723437)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/b0f6fd03-f4e2-4224-8b5c-8434fd7e8541)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/34c0eed0-a83e-4873-8c21-1572bc1851e4)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/d149fe1b-4d80-44bb-be4d-771795b085df)
+![image](https://github.com/maainul/FullStackThings/assets/37740006/42e5e56d-9605-476d-b5c8-da297aca0ce9)
+
+# Problems :
+
+## 1.
+
+![image](https://github.com/maainul/FullStackThings/assets/37740006/83ab7c2e-ccd8-47a3-91a4-bfd40a80bdbe)
+
+## Solution :
+
+![image](https://github.com/maainul/FullStackThings/assets/37740006/cbd11668-b851-42d0-adb3-f3721c836233)
