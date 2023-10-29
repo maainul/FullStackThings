@@ -61,3 +61,65 @@
 ## Solution :
 
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/cbd11668-b851-42d0-adb3-f3721c836233)
+
+
+
+# https://www.frontendmag.com/tips/how-to-master-react-js-ultimate-guide/#1_Have_a_good_grasp_of_core_React_features
+
+
+10 Basic Concepts About React You Should Learn
+1. The Component Lifecycle
+2. JSX expressions
+3. React Virtual DOM
+Why is Virtual DOM faster?
+4. Using Virtual DOM in React
+5. Props in JSX
+6. The components of ReactJS
+	a) Functional Components
+	b) Class Components:
+7. React Props And PropTypes
+8. Performance Optimization for React Apps
+9. State in React
+10. Hooks of React
+11. React Context
+
+
+Table of Contents
+1. Have a good grasp of core React features
+JSX syntax
+Components and Props
+State and Lifecycle
+Event handling
+Lists and Keys
+Fragments
+2. Learn advanced React concepts
+Code-Splitting
+Context
+Refs
+Error Boundaries
+Portals
+Profiler
+Higher-Order Components
+Render Props
+Accessibility
+Strict Mode
+3. Understand React hooks
+4. Learn state management in React
+5. Proficient in using a UI library
+6. Learn popular third-party libraries in React ecosystem
+7. Consider using TypeScript
+8. Consider learning Next JS
+9. Understand best practices in React
+10. Create your own React libraries or Contribute to open-source projects
+11. Deep dive into how React works internally
+How To Master React JS: Conclusion
+
+## https://www.javatpoint.com/reactjs-tutorial
+ReactJS Tutorial
+ReactJS Tutorial open linkReact IntroductionReact VersionReact Installationcreate-react-appReact FeaturesPros & ConsReactJS vs AngularJSReactJS vs ReactNativeReact vs VueReact JSXReact ComponentsReact StateReact PropsReact Props ValidationReact State vs PropsReact ConstructorReact Component APIComponent Life CycleReact FormsControlled vs UncontrolledReact EventsConditional RenderingReact ListsReact KeysReact RefsReact FragmentsReact RouterReact CSSReact AnimationReact BootstrapReact MapReact TableHigher-Order ComponentsReact Code SplittingReact ContextReact HooksReact Flux ConceptReact Flux Vs MVCReact ReduxReact Redux ExampleReact PortalsReact Error Boundaries
+Misc.
+Loop Array in React JSReact Axios Delete Request ExampleReact Multiple CheckboxReact-iconsReact Date PickerReact HelmetInline Style in ReactjQuery vs. ReactReactJS ArchitectureReactJS PropTypesBrowserRouter in ReactReact vs. SvelteButton in ReactWhat is Dom in ReactUnit Testing in ReactCarousel in ReactReact-PaginateWhat is the useState in ReactReact Time-PickerReact.js vs Node.js
+MCQ
+React.js MCQ
+Interview Questions
+ReactJS Interview
