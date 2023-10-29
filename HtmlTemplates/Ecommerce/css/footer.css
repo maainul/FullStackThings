@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+.container {
+    margin: 0 auto;
+    margin-left: 3.2rem;
+    margin-right: 3.2rem;
+}
+
+.grid {
+    display: grid;
+    column-gap: 3.2rem;
+    row-gap: 3.2rem;
+}
+
+.grid--3-cols {
+    grid-template-columns: 1.5fr 1fr 1fr;
+
+}
+
+.grid--footer {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+}
+
+.footer {
+    color: #888;
+}
+
+.footer-top {
+    background-color: #232f3e;
+    padding: 30px 0px;
+
+
+}
+
+.footer-middle {
+    padding: 3.6rem 0;
+}
+
+.logo-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+}
+
+.logo {
+    height: 2.2rem;
+}
+
+.left-footer-top-info .heading {
+    text-transform: capitalize;
+    font-weight: 700;
+    line-height: 20px;
+    font-size: 1.5rem;
+    color: white;
+
+}
+
+.left-footer-top-info .info {
+    line-height: 20px;
+
+    color: white;
+
+}
+
+.left-footer-top {
+    display: flex;
+    gap: 2.4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-heading {
+    text-transform: uppercase;
+    font-weight: 600;
+    /* margin-bottom: 2rem; */
+    padding-top: 20px;
+
+}
+
+.footer-nav-col-hr {
+    margin-top: 10px;
+    width: 4rem;
+    margin-bottom: 15px;
+
+}
+
+.contact--link {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.footer-nav {
+    list-style: none;
+}
+
+.footer-middle-contact-link:link,
+.footer-middle-contact-link:visited {
+    text-decoration: none;
+    color: #888;
+}
+
+.footer-middle-contact-link:hover,
+.footer-middle-contact-link:active {
+    text-decoration: none;
+    color: #555;
+    cursor: pointer;
+
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+
+.bottom-top-links {
+    text-decoration: none;
+    border-right: 1px solid #cdc7c7;
+    padding-right: 12px;
+    color: #555;
+    padding-left: 12px;
+}
+
+.footer-bottom-top {
+    padding-top: 10px;
+}
+
+.bottom-top-links:last-child {
+    border: 0;
+}
+
+.footer-bottom-payment {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.footer-bottom {
+    background-color: #232f3e;
+    margin-top: 45px;
+    padding: 15px 0;
+    color: #fff;
+}
+
+.footer-bottom-p {
+    text-align: center;
+}
+
+.footer-bottom-div {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.footer-bottom-div a {
+    color: #F13C2E;
+    text-decoration: none;
+}

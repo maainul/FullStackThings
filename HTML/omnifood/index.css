@@ -41,7 +41,7 @@ body {
   display: inline-block;
   transition: backgroud-color 1s;
   font-weight: 600;
-/* Only btn */
+  /* Only btn */
   border: none;
   cursor: pointer;
   font-family: inherit;
@@ -541,19 +541,20 @@ strong {
   background-color: #fdf2e9;
 }
 
-.btn--form{
+.btn--form {
   background-color: #45260a;
   color: #fdf2e9;
   align-self: end;
   padding: 1.2rem;
 }
 
-.btn--form:hover{
+.btn--form:hover {
   background-color: #fdf2e9;
   color: #e67e22;
   text-decoration: none;
 }
-*:focus{
+
+*:focus {
   outline: none;
   /* outline: 4px dotted #e67e22; */
   /* outline-offset: 8px; */
@@ -562,7 +563,8 @@ strong {
 
 .cta *:focus {
   outline: none;
-  box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.50);;
+  box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.50);
+  ;
 }
 
 /******************************************/
