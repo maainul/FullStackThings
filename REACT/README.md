@@ -239,6 +239,24 @@ export default Example;
 
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/11c4e8fd-e138-421d-b010-d336a3334247)
 
+### USE STATE
+
+useState is a React Hook :
+
+    const[state, setState] = useState(initialState)
+
+<b>useState(initialState) :</b>
+
+```js
+import { useState } from "react";
+
+function MyComponent() {
+  const [age, setAge] = useState(28);
+  const [name, setName] = useState("Taylor");
+  const [todos, setTodos] = useState(() => createTodos());
+}
+```
+
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/4bd4aae5-7830-4de1-926e-19babb837f49)
 
 ## Projects :
