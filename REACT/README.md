@@ -52,6 +52,146 @@
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/23c80963-6e18-463b-ab7a-c36176b91161)
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/6a2bca83-9841-4ae1-8990-ba84af13eac2)
 
+```jsx
+import React from "react";
+import PropComp from "./PropComp";
+import EventWithTwoParam from "./EventWithTwoParam";
+
+export default class StateObj extends React.Component {
+  fun_one() {
+    console.log("Event without parameter");
+  }
+  constructor() {
+    super();
+    this.state = {
+      data: "Any Types of Data",
+      num: 2,
+      boolean: true,
+      // object
+      obj: {
+        title: "Hi there",
+        name: "Mainul Hasan",
+      },
+      // list of array
+      stack: ["Mongodb", "Express", "React", "Nodejs"],
+      key1: "Data Comming from StateComponent 1",
+      key2: "Data Comming from StateComponent 2",
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>This is State Component Example</h1>
+        {/* How to Return State Data */}
+        <h2>{this.state.data}</h2>
+        <h3>{this.state.num}</h3>
+        <h4>{this.state.boolean}</h4>
+        {/* How to Print Object */}
+        <p>{JSON.stringify(this.state.obj.name)}</p>
+        <p>{JSON.stringify(this.state.obj.title)}</p>
+        {/* How to Use Map */}
+        <p>{this.state.stack}</p>
+        <p>
+          {this.state.stack.map((element, index) => (
+            <li key={index}>{element}</li>
+          ))}
+        </p>
+        {/* Props Sending */}
+        <PropComp data1={this.state.key1} data2={this.state.key2} />
+
+        <button onClick={this.fun_one}>Click Me</button>
+        <hr />
+        <br />
+        <EventWithTwoParam />
+      </div>
+    );
+  }
+}
+```
+
+![image](https://github.com/maainul/FullStackThings/assets/37740006/53590778-53f0-4c74-aefa-49e9babb605b)
+
+```jsx
+import React from "react";
+
+export default class SetStateComp extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      subject: "FrontEnd Developer",
+    };
+  }
+
+  changeSub = () => {
+    this.setState({
+      subject: "Mern Stack Developer",
+    });
+  };
+  render() {
+    return (
+      <div>
+        <h1>{this.state.subject}</h1>
+        <button onClick={this.changeSub}>Change State</button>
+      </div>
+    );
+  }
+}
+```
+
+![image](https://github.com/maainul/FullStackThings/assets/37740006/007c454d-4237-475c-8f5e-e4189b795007)
+
+```jsx
+import React from "react";
+
+export default class RefComp extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      login: "",
+    };
+  }
+  login = () => {
+    if (this.refs.uname.value === "admin" && this.refs.upwd.value === "admin") {
+      this.setState({
+        login: "Success",
+      });
+    } else
+      this.setState({
+        login: "Failed",
+      });
+  };
+  render() {
+    return (
+      <div>
+        <fieldset>
+          <legend>Login Form</legend>
+          <br />
+          <br />
+          <input type="text" ref="uname" placeholder="Enter User Name" />
+          <br />
+          <br />
+          <br />
+          <input type="password" ref="upwd" placeholder="Enter Password" />
+          <br /> <br />
+          <button onClick={this.login}>Login </button>
+          <br />
+          <br />
+          <br />
+          <br />
+          <h1>Login Status : ={this.state.login}</h1>
+        </fieldset>
+      </div>
+    );
+  }
+}
+```
+
+![image](https://github.com/maainul/FullStackThings/assets/37740006/2ceb4953-b017-49d3-87a4-7b5c4d79fbb0)
+
+![image](https://github.com/maainul/FullStackThings/assets/37740006/499a77af-3797-470c-8386-cc61eef1371b)
+
+
 # Problems :
 
 ## 1.
