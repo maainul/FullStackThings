@@ -74,3 +74,43 @@
          const saltRounds = 10;
          const passFromUserToString = pass.toString();
          const toHashedPass = await bcrypt.hash(passFromUserToString, saltRounds);
+
+## Node JS TUTORIAL
+
+## 1. Read and write data from file system.
+
+```js
+const fs = require("fs");
+
+const textIn = fs.readFileSync("./txt/input.txt", "utf-8");
+console.log(textIn);
+
+const textOut = `This is what we know about the avocado : ${textIn}.\n Created on ${Date.now()}`;
+fs.writeFileSync("./txt/output.txt", texOut);
+console.log("File Written!");
+```
+
+## 2. SYNCHRONOUS
+
+### SYNCHRONOUS :
+
+Each statement is executing one after another line by line.Each line wait result of previous line.
+It Blocks the previous statement execution so it is called <b>Blocking Code</b>.
+```js
+const fs = require('fs');
+
+const input = fs.readFileSync('input.txt','utf-8');
+console.log(input);
+```
+
+For Solution This Blocking code Use ASYNCHRONOUS NON-BLOCKING Code.
+```js
+const fs = require('fs');
+fs.readFile('input.txt','utf-8',(err,data)=>{
+        console.log(data);
+});
+console.log('Reading file...');
+
+```
+
+### NON-BLOCKING I/O MODEL :
