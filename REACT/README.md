@@ -257,6 +257,414 @@ function MyComponent() {
 }
 ```
 
+1. You can’t call it inside loops or conditions.
+2. set functions do not have a return value.
+3. The current state of this state variable, initially set to the initial state you provided.
+4. The set function that lets you change it to any other value in response to interaction.
+5. Calling the set function does not change the current state in the already executing code:
+
+### Adding state to a component
+
+```js
+import { useState } from "react";
+
+function MyComponent() {
+  const [age, setAge] = useState(42);
+  const [name, setName] = useState("Taylor");
+}
+```
+
+### Pitfall
+
+```js
+function handleClick() {
+  setName("Robin");
+  console.log(name); // Still "Taylor"!
+}
+```
+
+It only affects what useState will return starting from the next render.
+
+```js
+import { useState } from "react";
+
+export default function Counter() {
+  count[(count, setCount)] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return <button onClick={handleClick}> You Pressed me {count} times</button>;
+}
+```
+
+### CheckBox (boolean) :
+
+```js
+import {useState} from 'react';
+
+export default function MyCheckBox(){
+  const [liked, setLiked] = useState(true)
+
+  function handleChange(e){
+    setLiked(e.target.checked);
+  }
+
+return (
+  <>
+    <label>
+    <input
+      type="checkbox"
+      checked={liked}
+      onChange= {handleChange}
+    />
+    I Liked this
+  </label>
+  <p>You {liked ? 'liked' : 'did not like'} this.</p>
+);
+}
+```
+
+### Form
+
+```js
+import { useState } from "react";
+
+export default function Form() {
+  const [name, setName] = useState("Mainul");
+  const [age, setAge] = useState(42);
+
+  return (
+    <>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <button onClick={() => setAge(age - 1)}>Decrement age</button>
+      <button onClick={() => setAge(age + 1)}>Increment Age</button>
+      <p>
+        Hello, {name}. You are {age} years Old
+      </p>
+    </>
+  );
+}
+```
+
+### Updating state based on the previous state
+
+However, after one click, age will only be 43 rather than 45! This is because calling the set function does not update the age state variable in the already running code. So each setAge(age + 1) call becomes setAge(43).
+
+To solve this problem, you may pass an updater function to setAge instead of the next state:
+
+```js
+function handleClick() {
+  setAge((a) => a + 1); // setAge(42 => 43)
+  setAge((a) => a + 1); // setAge(43 => 44)
+  setAge((a) => a + 1); // setAge(44 => 45)
+}
+```
+
+Here, a => a + 1 is your updater function. It takes the pending state and calculates the next state from it.
+
+React puts your updater functions in a queue. Then, during the next render, it will call them in the same order:
+
+a => a + 1 will receive 42 as the pending state and return 43 as the next state.
+a => a + 1 will receive 43 as the pending state and return 44 as the next state.
+a => a + 1 will receive 44 as the pending state and return 45 as the next state.
+There are no other queued updates, so React will store 45 as the current state in the end.
+
+By convention, it’s common to name the pending state argument for the first letter of the state variable name, like a for age. However, you may also call it like prevAge or something else that you find clearer.
+
+### Passing the updater function
+
+```js
+import {useState} from 'react'
+
+export default function Counter(){
+  const [age,setAge] = useState(40);
+
+function increment(){
+  setAge(a => a +1);
+}
+
+return (
+  <>
+    <h1>Your age: {age}</h1>
+    <button onClick = {() => {
+      increment();
+      increment();
+      increment();
+    }}
+    > +3 </button>
+    <button onClick={() =>{
+      increment();
+    }}>
+  </button>
+)
+}
+
+```
+
+### Updating objects and arrays in state
+
+State can hold any kind of JavaScript value, including objects. But you shouldn’t change objects that you hold in the React state directly. Instead, when you want to update an object, you need to create a new one (or make a copy of an existing one), and then set the state to use that copy.
+
+Now consider an object in state:
+
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+
+Technically, it is possible to change the contents of the object itself. This is called a mutation:
+
+    position.x = 5;
+
+### Copying objects with the spread syntax
+
+```js
+import {useState} from 'react';
+
+export default function Form(){
+  const [person, setPerson] = useState({
+    firstName:'Barbara',
+    lastName :'darbara',
+    email: 'bardar@tuntun.com'
+  });
+
+  function handleFirsNameChange(e){
+    setPerson({
+        ...person,
+    firstName = e.target.value
+    })
+  }
+  function handlelastNameChange(e){
+    setPerson({
+      ...person
+      person.firstName = e.target.value;
+    })
+  }
+  function handleEmailChange(e){
+    setPerson({
+      ...person
+      person.firstName = e.target.value;
+    })
+  }
+
+  return (
+    <>
+    <label>
+      First Name :
+      <input
+      value={person.firtName}
+      onChange={handleFirstNameChange}
+      />
+    </label>
+    <label>
+      Last Name :
+      <input
+      value={person.lastName}
+      onChange={handleLastNameChange}
+      />
+    </label>
+    <label>
+      First Name :
+      <input
+      value={person.email}
+      onChange={handleEmailChange}
+      />
+    </label>
+    <p>
+      {person.firstName} {' '}
+      {person.lastName} {' '}
+      {person.Email} {' '}
+    </p>
+    </>
+  )
+}
+```
+
+### Updating a nested object
+
+```js
+const [person, setPerson] = useState({
+  name: "Nil Nil Ran",
+  artwork: {
+    title: "Blue whale",
+    city: "Hamburg",
+    image: "https://i,imgu,com/sd1df.jpg",
+  },
+});
+```
+
+But in React, you treat state as immutable! In order to change city, you would first need to produce the new artwork object (pre-populated with data from the previous one), and then produce the new person object which points at the new artwork:
+
+```js
+import { useState } from "react";
+
+export default function Form() {
+  const [person, setPerson] = useState({
+    name: "Nil Nil Ran",
+    artwork: {
+      title: "Blue whale",
+      city: "Hamburg",
+      image: "https://i,imgu,com/sd1df.jpg",
+    },
+  });
+
+  function hanleNameChange(e) {
+    setPerson({
+      ...person,
+      name: e.target.value,
+    });
+  }
+
+  function handleTitleChange(e) {
+    setPerson({
+      ...person,
+      title: e.target.vale,
+    });
+  }
+
+  function handleCityChange(e) {
+    setPerson({
+      ...person,
+      artwork: {
+        ...person.artwork,
+        city: e.target.value,
+      },
+    });
+  }
+
+  function handleImageChange(e) {
+    setPerson({
+      ...person,
+      artwork: {
+        ...person.artwork,
+        image: e.target.value,
+      },
+    });
+  }
+
+  return (
+    <>
+      <lable>
+        Name :
+        <input value={person.name} onChange={handleNameChange} />
+      </lable>
+      ;<label>
+        Title:
+        <input value={person.artwork.title} onChange={handleTitleChange} />
+      </label>
+      <lable>
+        Image:
+        <input value={person.artwork.title} onChange={handleImageChange} />
+      </lable>
+      <p>
+        <i>{person.artwork.title}</i>
+        {" by "}
+        <br />
+        (located in {person.artwork.city})
+      </p>
+      <img src={person.artwork.image} alt={person.artwork.image} />
+    </>
+  );
+}
+```
+
+### Write concise update logic with Immer
+
+If your state is deeply nested, you might want to consider flattening it. But, if you don’t want to change your state structure, you might prefer a shortcut to nested spreads. Immer is a popular library that lets you write using the convenient but mutating syntax and takes care of producing the copies for you. With Immer, the code you write looks like you are “breaking the rules” and mutating an object:
+
+But unlike a regular mutation, it doesn’t overwrite the past state!
+
+To try Immer:
+
+1. Run npm install use-immer to add Immer as a dependency
+2. Then replace import { useState } from 'react' with import { useImmer } from 'use-immer'
+
+```js
+import {useImmer} from 'use-immer';
+
+export default function Form(){
+  const [person,updatePerson] = useImmer({
+    name:'Mainul Hasan',
+    artwork:{
+      title:'Blue naa',
+      city:'Hamburg',
+      image:'https://image'
+    }
+  });
+
+  function handleNameChange(e){
+    updatePerson(draft =>{
+      draft.name=e.target.value';
+    });
+  }
+
+  function hanldeTitleChange(e){
+    updatePerson(draft=>{
+      draft.artwork.title = e.target.value;
+    })
+  }
+
+  funciton handleCityChange(e){
+    updatePerson(draft =>{
+      draft.artwork.city = e.target.value;
+    })
+  }
+
+  function handleImageChange(e){
+    updatePerson(draft =>{
+      draft.artwork.image = e.target.vale
+    })
+  }
+
+  return (
+    <>
+        <label>
+        Name :
+        <input
+        value={person.name}
+        onChange={handleNameChange}
+        />
+    </label>
+    <label>
+      Title:
+      <input
+      value={person.artwork.title}
+      onChange={handleCityChange}
+      />
+    </label>
+    <label>
+        Image:
+        <input
+          value={person.artwork.image}
+          onChange={handleImageChange}
+        />
+      </label>
+
+      <p>
+        <i>{person.artwork.title}</i>
+        {'by'}
+        {person.name}
+        <br/>
+      </p>
+      <img
+        src={person.artwork.image}
+        alt={person.artwork.title}
+      />
+      </>
+  )
+
+
+}
+
+```
+
+#### Updating Objects in State
+
+#### Updating Arrays in State
+
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/4bd4aae5-7830-4de1-926e-19babb837f49)
 
 ## Projects :
@@ -328,146 +736,6 @@ function MyComponent() {
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/23c80963-6e18-463b-ab7a-c36176b91161)
 
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/6a2bca83-9841-4ae1-8990-ba84af13eac2)
-
-```jsx
-import React from "react";
-import PropComp from "./PropComp";
-import EventWithTwoParam from "./EventWithTwoParam";
-
-export default class StateObj extends React.Component {
-  fun_one() {
-    console.log("Event without parameter");
-  }
-  constructor() {
-    super();
-    this.state = {
-      data: "Any Types of Data",
-      num: 2,
-      boolean: true,
-      // object
-      obj: {
-        title: "Hi there",
-        name: "Mainul Hasan",
-      },
-      // list of array
-      stack: ["Mongodb", "Express", "React", "Nodejs"],
-      key1: "Data Comming from StateComponent 1",
-      key2: "Data Comming from StateComponent 2",
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>This is State Component Example</h1>
-        {/* How to Return State Data */}
-        <h2>{this.state.data}</h2>
-        <h3>{this.state.num}</h3>
-        <h4>{this.state.boolean}</h4>
-        {/* How to Print Object */}
-        <p>{JSON.stringify(this.state.obj.name)}</p>
-        <p>{JSON.stringify(this.state.obj.title)}</p>
-        {/* How to Use Map */}
-        <p>{this.state.stack}</p>
-        <p>
-          {this.state.stack.map((element, index) => (
-            <li key={index}>{element}</li>
-          ))}
-        </p>
-        {/* Props Sending */}
-        <PropComp data1={this.state.key1} data2={this.state.key2} />
-
-        <button onClick={this.fun_one}>Click Me</button>
-        <hr />
-        <br />
-        <EventWithTwoParam />
-      </div>
-    );
-  }
-}
-```
-
-![image](https://github.com/maainul/FullStackThings/assets/37740006/53590778-53f0-4c74-aefa-49e9babb605b)
-
-```jsx
-import React from "react";
-
-export default class SetStateComp extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      subject: "FrontEnd Developer",
-    };
-  }
-
-  changeSub = () => {
-    this.setState({
-      subject: "Mern Stack Developer",
-    });
-  };
-  render() {
-    return (
-      <div>
-        <h1>{this.state.subject}</h1>
-        <button onClick={this.changeSub}>Change State</button>
-      </div>
-    );
-  }
-}
-```
-
-![image](https://github.com/maainul/FullStackThings/assets/37740006/007c454d-4237-475c-8f5e-e4189b795007)
-
-```jsx
-import React from "react";
-
-export default class RefComp extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      login: "",
-    };
-  }
-  login = () => {
-    if (this.refs.uname.value === "admin" && this.refs.upwd.value === "admin") {
-      this.setState({
-        login: "Success",
-      });
-    } else
-      this.setState({
-        login: "Failed",
-      });
-  };
-  render() {
-    return (
-      <div>
-        <fieldset>
-          <legend>Login Form</legend>
-          <br />
-          <br />
-          <input type="text" ref="uname" placeholder="Enter User Name" />
-          <br />
-          <br />
-          <br />
-          <input type="password" ref="upwd" placeholder="Enter Password" />
-          <br /> <br />
-          <button onClick={this.login}>Login </button>
-          <br />
-          <br />
-          <br />
-          <br />
-          <h1>Login Status : ={this.state.login}</h1>
-        </fieldset>
-      </div>
-    );
-  }
-}
-```
-
-![image](https://github.com/maainul/FullStackThings/assets/37740006/2ceb4953-b017-49d3-87a4-7b5c4d79fbb0)
-
-![image](https://github.com/maainul/FullStackThings/assets/37740006/499a77af-3797-470c-8386-cc61eef1371b)
-
 
 # Problems :
 
