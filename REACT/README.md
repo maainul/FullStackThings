@@ -661,9 +661,152 @@ export default function Form(){
 
 ```
 
-#### Updating Objects in State
-
 #### Updating Arrays in State
+
+1. Arrays are mutable in JavaScript, but you should treat them as immutable when you store them in state.
+2. Just like with objects, when you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array.
+
+### Updating arrays without mutation
+
+1. In JavaScript, arrays are just another kind of object. Like with objects, you should treat arrays in React state as read-only.
+2. This means that you shouldn’t reassign items inside an array like arr[0] = 'bird', and you also shouldn’t use methods that mutate the array, such as push() and pop().
+
+3. Instead, every time you want to update an array, you’ll want to pass a new array to your state setting function.
+4. To do that, you can create a new array from the original array in your state by calling its non-mutating methods like filter() and map(). Then you can set your state to the resulting new array.
+
+Here is a reference table of common array operations. When dealing with arrays inside React state, you will need to avoid the methods in the left column, and instead prefer the methods in the right column:
+
+![image](https://github.com/maainul/FullStackThings/assets/37740006/a4a5cbbf-27c1-45f1-87b1-fbf9602921f8)
+
+### Pitfall
+
+Unfortunately, slice and splice are named similarly but are very different:
+
+1. slice lets you copy an array or a part of it.
+2. splice mutates the array (to insert or delete items).
+
+In React, you will be using slice (no p!) a lot more often because you don’t want to mutate objects or arrays in state.
+
+Updating Objects explains what mutation is and why it’s not recommended for state.
+
+### Adding to an array
+
+```js
+import { useState } from "react";
+
+let nextId = 0;
+
+export default function List() {
+  const [name, setName] = useState("");
+  const [artists, setArtists] = useState([]);
+
+  return (
+    <>
+      <h1>Inspiring sculptors:</h1>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
+
+      <button
+        onClick={() => {
+          artists.push({
+            id: nextId++,
+            name: name,
+          });
+        }}
+      >
+        Add{" "}
+      </button>
+
+      <ul>
+        {artists.map((artist) => {
+          <li key={artist.id}>{artist.name}</li>;
+        })}
+      </ul>
+    </>
+  );
+}
+```
+
+... array spread syntax :
+
+```js
+setArtists([...artists, { id: nextId++, name: name }]);
+```
+
+### Now it works correctly:
+
+```js
+import { useState } from "react";
+
+let nextId = 0;
+
+export default function List() {
+  const [name, setName] = useState("");
+  const [artists, setArtists] = useState([]);
+
+  return (
+    <>
+      <h1> Inspiring Sculptors </h1>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
+
+      <button
+        onClick={() => {
+          setArtists([...artists, { id: nextId++, name: name }]);
+        }}
+      >
+        Add
+      </button>
+
+      <ul>{artists.map(<li key={artist.id}>{artist.name}</li>)}</ul>
+    </>
+  );
+}
+```
+
+### Removing from an array
+
+1. The easiest way to remove an item from an array is to filter it out.
+2. In other words, you will produce a new array that will not contain that item.
+3. To do this, use the filter method, for example:
+
+```js
+import {useState} from 'react';
+
+let initialArtists = [
+  {id : 0, name : 'Marticl'},
+  {id : 1, name : 'Lamidi Olonde Fakeye'},
+  {id : 2, name : 'Louis'},
+]
+
+export default function Lists(){
+  const [artists, setArtists] = useState(
+    intialArtists
+  );
+
+  return (
+    <>
+      <h1> Inspiring Sculptors : </h1>
+      <ul>
+      {artists.map(artist =>{
+        <li key={artist.id}>
+          {artist.name}{''}
+          <button onClick={() =>{
+            setArtists(
+              {artists.filter(a =>(
+                a.id != artist.id
+      );
+            }}>Delete
+
+          </button>
+        </li>
+      })}
+      </ul>
+    </>
+  )
+}
+
+```
+Here, artists.filter(a => a.id !== artist.id) means “create an array that consists of those artists whose IDs are different from artist.id”. In other words, each artist’s “Delete” button will filter that artist out of the array, and then request a re-render with the resulting array. Note that filter does not modify the original array.
+
 
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/4bd4aae5-7830-4de1-926e-19babb837f49)
 
