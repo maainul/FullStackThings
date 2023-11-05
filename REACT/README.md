@@ -601,6 +601,60 @@ export default function Form(){
     });
   }
 
+  function hanldeTitleChange(e){
+    updatePerson(draft=>{
+      draft.artwork.title = e.target.value;
+    })
+  }
+
+  funciton handleCityChange(e){
+    updatePerson(draft =>{
+      draft.artwork.city = e.target.value;
+    })
+  }
+
+  function handleImageChange(e){
+    updatePerson(draft =>{
+      draft.artwork.image = e.target.vale
+    })
+  }
+
+  return (
+    <>
+        <label>
+        Name :
+        <input
+        value={person.name}
+        onChange={handleNameChange}
+        />
+    </label>
+    <label>
+      Title:
+      <input
+      value={person.artwork.title}
+      onChange={handleCityChange}
+      />
+    </label>
+    <label>
+        Image:
+        <input
+          value={person.artwork.image}
+          onChange={handleImageChange}
+        />
+      </label>
+
+      <p>
+        <i>{person.artwork.title}</i>
+        {'by'}
+        {person.name}
+        <br/>
+      </p>
+      <img
+        src={person.artwork.image}
+        alt={person.artwork.title}
+      />
+      </>
+  )
 
 
 }
@@ -753,4 +807,3 @@ MCQ
 React.js MCQ
 Interview Questions
 ReactJS Interview
-
