@@ -1,84 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
-        rel="stylesheet" />
-</head>
-
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+  </head>
+  <body>
     <div class="container">
-        <div class="title">Registration</div>
-        <form action="">
-            <div class="title">Personal Details</div>
-            <div class="details personal">
-                <div class="input-box">
-                    <span class="input-details">Full Name</span>
-                    <input type="text" placeholder="Enter your Name" />
-                </div>
-                <div class="input-box">
-                    <span class="input-details">Date of Birth</span>
-                    <input type="date" placeholder="" />
-                </div>
-                <div class="input-box">
-                    <span class="input-details">Email</span>
-                    <input type="text" placeholder="Enter Your Email" />
-                </div>
-                <div class="input-box">
-                    <span class="input-details">Mobile Number</span>
-                    <input type="text" placeholder="Enter your number" />
-                </div>
-                <div class="input-box">
-                    <span class="input-details">First Name</span>
-                    <input type="text" placeholder="Enter First Name" />
-                </div>
-                <div class="input-box">
-                    <span class="input-details">Gender</span>
-                    <input type="text" placeholder="Enter your gender" />
-                </div>
-                <div class="input-box">
-                    <span class="input-details">Occupation</span>
-                    <input type="text" placeholder="Enter your occupation" />
-                </div>
-            </div> <!------ USER DETAILS END --------->
-
-            <div class="details identity"><!------ USER OTHER INFO START --------->
-                <div class="title">Identity Details</div>
-                <div class="input-box">
-                    <span class="input-details">ID Type</span>
-                    <input type="text" placeholder="Enter ID Type" />
-                </div>
-                <div class="input-box">
-                    <span class="input-details">ID Number</span>
-                    <input type="text" placeholder="Enter ID Number" />
-                </div>
-                <div class="input-box">
-                    <span class="input-details">Issue Authority</span>
-                    <input type="text" placeholder="Enter issue department" />
-                </div>
-                <div class="input-box">
-                    <span class="input-details">Issue State</span>
-                    <input type="text" placeholder="Enter issue state" />
-                </div>
-                <div class="input-box">
-                    <span class="input-details">Issue Date</span>
-                    <input type="date" />
-                </div>
-                <div class="input-box">
-                    <span class="input-details">Expiry Date</span>
-                    <input type="date" />
-                </div>
-            </div> <!------ USER OTHER INFO START --------->
-            <div class="button next">
-                <input type="submit" value="Next">
+      <div class="heading-title">Registration</div>
+      <form action="">
+        <div class="form first">
+          <div class="title">Personal Details</div>
+          <div class="details personal">
+            <div class="input-box">
+              <span class="input-details">Full Name</span>
+              <input type="text" placeholder="Enter your Name" />
             </div>
-        </form>
+            <div class="input-box">
+              <span class="input-details">Date of Birth</span>
+              <input type="date" placeholder="" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Email</span>
+              <input type="text" placeholder="Enter Your Email" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Mobile Number</span>
+              <input type="text" placeholder="Enter your number" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">First Name</span>
+              <input type="text" placeholder="Enter First Name" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Gender</span>
+              <input type="text" placeholder="Enter your gender" />
+            </div>
+            <!-- <div class="input-box">
+            <span class="input-details">Occupation</span>
+            <input type="text" placeholder="Enter your occupation" />
+          </div> -->
+          </div>
+          <!------ USER DETAILS END --------->
+
+          <!------ USER OTHER INFO START --------->
+          <div class="title">Identity Details</div>
+          <div class="details identity">
+            <div class="input-box">
+              <span class="input-details">ID Type</span>
+              <input type="text" placeholder="Enter ID Type" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">ID Number</span>
+              <input type="text" placeholder="Enter ID Number" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Issue Authority</span>
+              <input type="text" placeholder="Enter issue department" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Issue State</span>
+              <input type="text" placeholder="Enter issue state" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Issue Date</span>
+              <input type="date" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Expiry Date</span>
+              <input type="date" />
+            </div>
+          </div>
+          <!------ USER OTHER INFO START --------->
+          <button class="nxtBtn">
+            <span class="btnText">Next</span>
+            <i class="uil uil-navigator"></i>
+          </button>
+        </div>
+        <!------------ FORM SECOND PART----------->
+        <div class="form second">
+          <!------ USER ADDRESS INFO START --------->
+          <div class="title">Address Details</div>
+          <div class="details identity">
+            <div class="input-box">
+              <span class="input-details">Address Type</span>
+              <input type="text" placeholder="Permanent or Temporary" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Nationality</span>
+              <input type="text" placeholder="Enter your nationality" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">State</span>
+              <input type="text" placeholder="Enter your state" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">District </span>
+              <input type="text" placeholder="Enter your district" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Block Number</span>
+              <input type="text" placeholder="Enter block number" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Wark Number</span>
+              <input type="text" placeholder="Enter ward number" />
+            </div>
+          </div>
+          <!------ USER ADDRESS INFO START --------->
+
+          <!------ FAMILY  INFO START--------->
+          <div class="title">Family Details</div>
+          <div class="details family">
+            <div class="input-box">
+              <span class="input-details">Father Name</span>
+              <input type="text" placeholder="Enter your Name" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Mother Name</span>
+              <input type="text" placeholder="Enter mother name" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Grandfather</span>
+              <input type="text" placeholder="Enter grandfather name" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Spouse Name</span>
+              <input type="text" placeholder="Enter spouse name" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Father in Law</span>
+              <input type="text" placeholder="Father in Law" />
+            </div>
+            <div class="input-box">
+              <span class="input-details">Mother in Law</span>
+              <input type="text" placeholder="Mother in law name" />
+            </div>
+          </div>
+          <!------ USER DETAILS END --------->
+          <div class="buttons">
+            <button class="backBtn">
+              <i class="uil uil-navigator"></i>
+              <span class="btnText">Back</span>
+            </button>
+            <button class="submitBtn">
+              <span class="btnText">Submit</span>
+              <i class="uil uil-navigator"></i>
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
-</body>
+  </body>
 </html>
