@@ -24,6 +24,17 @@ body {
 .container .heading-title {
   font-size: 25px;
   font-weight: 500;
+  position: relative;
+}
+
+.container .heading-title::after {
+  left: 0;
+  bottom: 0;
+  content: "";
+  width: 30px;
+  height: 3px;
+  position: absolute;
+  background: #4070f4;
 }
 
 form .title {
