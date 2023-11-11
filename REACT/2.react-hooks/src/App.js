@@ -1,5 +1,6 @@
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
+import Pages from "./components/Pages";
 // import Header from "./components/Header";
 // import DisplayCounter from "./components/DisplayCounter";
 // import Toggler from "./components/Toggler";
@@ -10,6 +11,17 @@ import "./App.css";
 // import Post from "./components/Post";
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const paginationFunc = async () => {
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+      const data = await res.json();
+      setData(data);
+    };
+    paginationFunc();
+  }, []);
+
   // const [counter, setCounter] = useState(0);
   // const [toggler, setToggler] = useState(false);
 
@@ -26,6 +38,7 @@ function App() {
       {/* <PostProvider> */}
       <h1>React Hook and Context API</h1>
       <hr />
+      {data.length > 0 ? <Pages data={data} /> : <p>Loading...</p>}
       {/* <Header /> */}
       {/* <DisplayCounter counter={counter} /> */}
       <br />

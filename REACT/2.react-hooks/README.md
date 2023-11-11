@@ -494,3 +494,211 @@ const FunctionComponet = () => {
 export default FunctionComponet;
 export default User;
 ```
+
+### Custom Hooks For Pagination: (could be modified for better code practices)
+
+Steps :
+
+1. Create usePagination file in hooks folder :
+   This pagination contains all the pagination logic
+
+2. Call the api from the APP.js file. and call the Pages components
+   From this lines {data.length > 0 ? <Pages data={data} /> : <p>Loading...</p>}
+
+3. Create Pages.js Files and Update Codes.
+
+```js
+import { useState } from "react";
+
+const usePagination = (perPageRecords, totalPageRecords) => {
+  const totalPages = Math.ceil(totalPageRecords / perPageRecords);
+  const [startPageIndex, setStartPageIndex] = useState(0);
+  const [endPageIndex, setEndPageIndex] = useState(perPageRecords - 1);
+  const [currentPageIndex, setcurrentPageIndex] = useState(1);
+
+  const displayPage = (pageNo) => {
+    setcurrentPageIndex(pageNo);
+    let end_page_index = perPageRecords * pageNo - 1;
+    let start_page_index = perPageRecords * pageNo - perPageRecords;
+    setStartPageIndex(start_page_index);
+
+    if (end_page_index > totalPageRecords) {
+      setEndPageIndex(totalPageRecords - 1);
+    } else {
+      setEndPageIndex(end_page_index);
+    }
+  };
+
+  return [
+    totalPages,
+    startPageIndex,
+    endPageIndex,
+    currentPageIndex,
+    displayPage,
+  ];
+};
+
+export default usePagination;
+```
+
+### App.js
+
+```js
+import { useState, useEffect } from "react";
+import "./App.css";
+import Pages from "./components/Pages";
+
+
+function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const paginationFunc = async () => {
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+      const data = await res.json();
+      setData(data);
+    };
+    paginationFunc();
+  }, []);
+
+return (
+  <>
+ {data.length > 0 ? <Pages data={data} /> : <p>Loading...</p>}
+  </>
+)
+
+```
+
+### Pages.js
+
+```js
+import React from "react";
+import Pagination from "@mui/material/Pagination";
+import usePagination from "../hooks/usePagination";
+
+const Pages = ({ data }) => {
+  const [
+    totalPages,
+    startPageIndex,
+    endPageIndex,
+    currentPageIndex, // eslint-disable-line
+    displayPage,
+  ] = usePagination(5, data.length);
+
+  return (
+    <>
+      {(() => {
+        const displayPosts = [];
+        for (let i = startPageIndex; i <= endPageIndex; i++) {
+          displayPosts.push(
+            <div key={data[i].id}>
+              <h3>
+                <span>{i + 1}</span> <span>. </span>
+                {data[i].title} <p>{data[i].body}</p>
+              </h3>
+            </div>
+          );
+        }
+        return displayPosts;
+      })()}
+      <Pagination
+        color="primary"
+        count={totalPages}
+        onChange={(event, value) => displayPage(value)}
+      />
+    </>
+  );
+};
+
+export default Pages;
+```
+
+![image](https://github.com/maainul/FullStackThings/assets/37740006/3477058a-caa5-42a1-803e-3f94db502035)
+
+page 1 no = previous
+last page = no next page
+cur page > 4 "..."
+r = n of pages each side
+r1 = curp - r
+r2 = curp + r
+
+if lp > r2/2; (...)
+if lp > r2 ; lp
+
+if (page == 1){
+then cur = 1, prev = 0; next = 0;
+}
+if(cp > 4){
+
+}
+
+/\*
+
+Output:
+
+max: 1
+c:1 [1]
+
+max: 3
+c:1 [1, 2, 3]
+c:2 [1, 2, 3]
+c:3 [1, 2, 3]
+
+max: 5
+c:1 [1, 2, 3, '…', 5]
+c:2 [1, 2, 3, 4, 5]
+c:3 [1, 2, 3, 4, 5]
+c:4 [1, 2, 3, 4, 5]
+c:5 [1, '…', 3, 4, 5]
+
+max: 7
+c:1 [1, 2, 3, '…', 7]
+c:2 [1, 2, 3, 4, '…', 7]
+c:3 [1, 2, 3, 4, 5, '…', 7]
+c:4 [1, 2, 3, 4, 5, 6, 7]
+c:5 [1, '…', 3, 4, 5, 6, 7]
+c:6 [1, '…', 4, 5, 6, 7]
+c:7 [1, '…', 5, 6, 7]
+
+max: 9
+c:1 [1, 2, 3, '…', 9]
+c:2 [1, 2, 3, 4, '…', 9]
+c:3 [1, 2, 3, 4, 5, '…', 9]
+c:4 [1, 2, 3, 4, 5, 6, '…', 9]
+c:5 [1, '…', 3, 4, 5, 6, 7, '…', 9]
+c:6 [1, '…', 4, 5, 6, 7, 8, 9]
+c:7 [1, '…', 5, 6, 7, 8, 9]
+c:8 [1, '…', 6, 7, 8, 9]
+c:9 [1, '…', 7, 8, 9]
+
+\*/
+
+(1,1) -> 1
+(1,3) -> 1 (2,3), (1) 2 (3)
+(1,5) -> 1 (2,3,...) 5, (1) 2 (3,4,5), (1,2) 3 (4,5), (1,2,3), 4,(5), (1,2,3,4), 5, [1,...3,4,5],
+(1,7) -> [1,2,3,...,7].[1,2,3,4,...,7]
+(1,9)
+
+function paginate({current,max}){
+
+if(!current || !max) return null;
+
+let prev = current === 1 ? null : current - 1;
+let next = current === max ? null : current + 1;
+let items = [1];
+
+if(current === 1 && max === 1) return {current,prev,next,items}
+if(current > 4) items.push('...');
+
+let r = 2;
+let r = current - r;
+let r2 = current + r;
+
+for(let i = r1 > 2 ? r1:2; i <= Math.min(max,r2);i++) items.push(i)
+
+if(r2 +1 < max) items.push(...)
+if(r2 < max) items.push(max)
+
+return {current,prev,next,items}
+
+}
