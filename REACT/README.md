@@ -666,6 +666,17 @@ export default function Form(){
 1. Arrays are mutable in JavaScript, but you should treat them as immutable when you store them in state.
 2. Just like with objects, when you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array.
 
+## Important Topics to Cover
+
+1. Adding to an array
+2. Removing from an array
+3. Transforming an array
+4. Replacing items in an array
+5. Inserting into an array
+6. Making other changes to an array
+7. Updating objects inside arrays
+8. Write concise update logic with Immer
+
 ### Updating arrays without mutation
 
 1. In JavaScript, arrays are just another kind of object. Like with objects, you should treat arrays in React state as read-only.
@@ -805,8 +816,68 @@ export default function Lists(){
 }
 
 ```
+
 Here, artists.filter(a => a.id !== artist.id) means “create an array that consists of those artists whose IDs are different from artist.id”. In other words, each artist’s “Delete” button will filter that artist out of the array, and then request a re-render with the resulting array. Note that filter does not modify the original array.
 
+## Transforming an array
+
+## Replacing items in an array
+
+## Inserting into an array
+
+Sometimes, you may want to insert an item at a particular position that’s neither at the beginning nor at the end. To do this, you can use the ... array spread syntax together with the slice() method. The slice() method lets you cut a “slice” of the array. To insert an item, you will create an array that spreads the slice before the insertion point, then the new item, and then the rest of the original array.
+
+In this example, the Insert button always inserts at the index 1:
+
+```js
+import { useState } from "react";
+
+let nextId = 3;
+
+const initialArtists = [
+  { id: 0, name: "Marta Colovings" },
+  { id: 1, name: "lama dev" },
+  { id: 2, name: "louis nevelson" },
+];
+
+const [name, setName] = useState("");
+const [artists, setArtists] = useState(initialArtists);
+
+function handleClick() {
+  const insertAt = 1; // Could be any index
+  const nextArtists = [
+    // Items before the insertion points:
+    ...artists.slice(0, insertAt),
+    // New item:
+    { id: nextId++, name: name },
+    // Items after the insertion point:
+    ...artist.slice(insertAt),
+  ];
+  setArtists(nextArtists);
+  setName("");
+}
+
+return (
+  <>
+    <h1>Inspiring Scuptors:</h1>
+    <input value={name} onChange={(e) => setName(e.target.value)} />
+    <button onClick={handleClick}>Insert</button>
+    <ul>
+      {artists.map((artist) => (
+        <li key={artist.id}>{artist.name}</li>
+      ))}
+    </ul>
+  </>
+);
+```
+
+## Making other changes to an array
+
+There are some things you can’t do with the spread syntax and non-mutating methods like map() and filter() alone. For example, you may want to reverse or sort an array. The JavaScript reverse() and sort() methods are mutating the original array, so you can’t use them directly.
+
+## Updating objects inside arrays
+
+## Write concise update logic with Immer
 
 ![image](https://github.com/maainul/FullStackThings/assets/37740006/4bd4aae5-7830-4de1-926e-19babb837f49)
 
