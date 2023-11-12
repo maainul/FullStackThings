@@ -6,6 +6,35 @@ const usePagination = (perPageRecords, totalPageRecords) => {
   const [endPageIndex, setEndPageIndex] = useState(perPageRecords - 1);
   const [currentPageIndex, setcurrentPageIndex] = useState(1);
 
+
+  // 20 / 5 = 4
+  /*
+  s = 
+  e = 5 * 1 -1 = 5-1 = 4
+  c = 5 * 1 - 5 = 0
+  spi = 1
+  epi = 4 
+  // perpage record = 5 ,totalrecords = 20
+  totalpages = 20 / 5 = 4
+  startPageIndex = 0;
+  endPageIndex = 4
+  currentPageIndex = 1
+const displayPosts = [];
+for(i = 0; i < 4; i++){
+  displayPosts.push({key=> data[i].id}:value({data[i].title}))
+  displayPosts.push({key=> data[i].id}:value({data[i].title}))
+  displayPosts.push({key=> data[i].id}:value({data[i].title}))
+  displayPosts.push({key=> data[i].id}:value({data[i].title}))
+  displayPosts.push({key=> data[i].id}:value({data[i].title}))
+
+  // 1
+  // 5 - 1 = 4
+  5 * 1 - 5 = 0
+
+
+}
+
+*/
   const displayPage = (pageNo) => {
     setcurrentPageIndex(pageNo);
     let end_page_index = perPageRecords * pageNo - 1;
