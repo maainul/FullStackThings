@@ -57,6 +57,7 @@ form.secActive .form.second {
   pointer-events: auto;
   transform: translateX(0);
 }
+
 form.secActive .form.first {
   opacity: 0;
   pointer-events: none;
@@ -86,7 +87,6 @@ form.secActive .form.first {
 .container form .fields {
   display: flex;
   align-items: center;
-  justify-content: center;
   justify-content: space-between;
   flex-wrap: wrap;
 }
@@ -103,6 +103,7 @@ form .fields .input-field {
   color: #2e2e2e;
   margin: 4px 0;
 }
+
 .input-field input {
   height: 42px;
   margin: 8px 0;
@@ -112,6 +113,7 @@ form .fields .input-field {
   font-size: 14px;
   color: #333;
 }
+
 .input-field input:is(:focus, :valid) {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
 }
