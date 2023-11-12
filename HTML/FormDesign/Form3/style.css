@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  align-items: center;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+}
