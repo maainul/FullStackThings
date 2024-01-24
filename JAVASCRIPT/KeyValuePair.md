@@ -54,3 +54,40 @@ myTable.put("key2", "value2");
 myTable.put("key3", "value3");
 ```
 Choose the appropriate data structure based on your specific needs, such as performance, ordering, and thread safety.
+
+# Loop Map
+
+In JavaScript, you can loop through a Map using various methods. Here are a couple of common approaches:
+## Using forEach method:
+```js
+const myMap = new Map();
+myMap.set('key1', 'value1');
+myMap.set('key2', 'value2');
+myMap.set('key3', 'value3');
+
+myMap.forEach((value, key) => {
+  console.log(`Key: ${key}, Value: ${value}`);
+});
+```
+## Using for...of loop:
+```js
+const myMap = new Map();
+myMap.set('key1', 'value1');
+myMap.set('key2', 'value2');
+myMap.set('key3', 'value3');
+
+for (const [key, value] of myMap) {
+  console.log(`Key: ${key}, Value: ${value}`);
+}
+```
+## Using for...of loop with entries() method:
+```js
+const myMap = new Map();
+myMap.set('key1', 'value1');
+myMap.set('key2', 'value2');
+myMap.set('key3', 'value3');
+
+for (const [key, value] of myMap.entries()) {
+  console.log(`Key: ${key}, Value: ${value}`);
+}
+```
