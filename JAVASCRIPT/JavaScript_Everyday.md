@@ -1,4 +1,90 @@
-# JavaScript Let
+<hr/>
+
+# 2. Variable,Let,Const&Data Types
+
+## JavaScript Variables
+Variables are Containers for Storing Data
+
+JavaScript Variables can be declared in 4 ways:
+
+- Automatically
+- Using <b>var</b>
+- Using <b>let </b>
+- Using <b>const </b>
+
+#### Automatically
+```js
+x = 5;
+y = 6;
+z = x + y;
+```
+
+The var keyword was used in all JavaScript code from 1995 to 2015.
+
+The let and const keywords were added to JavaScript in 2015.
+
+The var keyword should only be used in code written for older browsers.
+
+#### Let Example :
+```js
+let x = 5;
+let y = 6;
+let z = x + y;
+```
+#### Const Example :
+```js
+const x = 5;
+const y = 6;
+const z = x + y;
+```
+#### Mixed Example :
+```js
+const price1 = 5;
+const price2 = 6;
+let total = price1 + price2;
+```
+
+It is considered good programming practice to always declare variables before use.
+
+## JavaScript Identifiers
+
+All JavaScript variables must be identified with unique names.
+These unique names are called identifiers.
+
+Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).
+
+
+The general rules for constructing names for variables (unique identifiers) are:
+
+- Names can contain letters, digits, underscores, and dollar signs.
+- Names must begin with a letter.
+- Names can also begin with $ and _ (but we will not use it in this tutorial).
+- Names are case sensitive (y and Y are different variables).
+- Reserved words (like JavaScript keywords) cannot be used as names.
+- JavaScript identifiers are case-sensitive.
+
+#### One Statement, Many Variables
+```js
+let person = "John Doe", carName = "Volvo", price = 200;
+```
+A declaration can span multiple lines:
+```js
+let person = "John Doe",
+carName = "Volvo",
+price = 200;
+```
+### JavaScript Underscore (_)
+Since JavaScript treats underscore as a letter, identifiers containing _ are valid variable names:
+```js
+let _lastName = "Johnson";
+let _x = 2;
+let _100 = 5;
+```
+Using the underscore is not very common in JavaScript, but a convention among professional programmers is to use it as an alias for "private (hidden)" variables.
+
+<hr/>
+
+## JavaScript Let & Const
 
 1. let introduce in 2015(ES6)
 2. let 
@@ -125,6 +211,243 @@ car = {
     color:"red"
 } // Error
 ```
+
+<hr/>
+
+## JavaScript Data Types
+
+JavaScript has 8 Datatypes
+1. String
+2. Number
+3. Bigint
+4. Boolean
+5. Undefined
+6. Null
+7. Symbol
+8. Object
+
+The Object Datatype
+
+The object data type can contain:
+1. An object
+2. An array
+3. A date
+
+```js
+// Numbers:
+let length = 16;
+let weight = 7.5;
+
+// Strings:
+let color = "Yellow";
+let lastName = "Johnson";
+
+// Booleans
+let x = true;
+let y = false;
+
+// Object:
+const person = {firstName:"John", lastName:"Doe"};
+
+// Array object:
+const cars = ["Saab", "Volvo", "BMW"];
+
+// Date object:
+const date = new Date("2022-03-25");
+```
+
+A JavaScript variable can hold any type of data.
+
+## JavaScript Types are Dynamic
+
+JavaScript has dynamic types. This means that the same variable can be used to hold different data types:
+
+```js
+let x;       // Now x is undefined
+x = 5;       // Now x is a Number
+x = "John";  // Now x is a String
+```
+#### JavaScript Numbers
+All JavaScript numbers are stored as decimal numbers (floating point).
+
+Numbers can be written with, or without decimals:
+```js
+// With decimals:
+let x1 = 34.00;
+
+// Without decimals:
+let x2 = 34;
+```
+
+Javascript numbers are always one type:
+double (64-bit floating point).
+
+All JavaScript numbers are stored in a a 64-bit floating-point format.
+
+### typeof Operator
+```js
+typeof ""             // Returns "string"
+typeof "John"         // Returns "string"
+typeof "John Doe"     // Returns "string"
+typeof 0              // Returns "number"
+typeof 314            // Returns "number"
+typeof 3.14           // Returns "number"
+typeof (3)            // Returns "number"
+typeof (3 + 4)        // Returns "number"
+```
+### Undefined
+In JavaScript, a variable without a value, has the value undefined. The type is also undefined.
+```js
+let car;    // Value is undefined, type is undefined
+car = undefined;    // Value is undefined, type is undefined
+```
+
+### Empty Values
+An empty value has nothing to do with undefined.
+
+An empty string has both a legal value and a type.
+```js
+let car = "";    // The value is "", the typeof is "string"
+```
+
+
+<hr>
+
+# 3. Booleans
+
+## JavaScript Booleans
+
+A JavaScript Boolean represents one of two values: true or false.
+
+### The Boolean() Function
+
+You can use the Boolean() function to find out if an expression (or a variable) is true:
+
+```js
+Boolean(10 > 9)
+// or even easier
+(10 > 9)
+10 > 9
+```
+### Everything With a "Value" is True
+```js
+Boolean(100)  // true
+Boolean(3.14)  // true
+Boolean(-15) // true
+Boolean("Hello") // true
+Boolean('false') // true
+Boolean(1 + 7 + 3.14) // true
+```
+### Everything Without a "Value" is False
+```js
+let x = -0;
+Boolean(x); // false
+let x = "";
+Boolean(x); // false
+let x;
+Boolean(x); // false
+let x = null;
+Boolean(x); // false
+let x = false;
+Boolean(x); // false
+let x = 10 / "Hallo"; // NaN
+Boolean(x); // false
+```
+### JavaScript Booleans as Objects
+
+Normally JavaScript booleans are primitive values created from literals:
+```js
+let x = false;
+```
+But booleans can also be defined as objects with the keyword new:
+```js
+let y = new Boolean(false);
+```
+
+```js
+let x = false;
+let y = new Boolean(false);
+
+// typeof x returns boolean
+// typeof y returns object
+```
+
+Do not create Boolean objects.
+
+The new keyword complicates the code and slows down execution speed.
+
+Boolean objects can produce unexpected results:
+
+<hr>
+
+# 4.Numbers
+
+## JavaScript Numbers
+JavaScript has only one type of number. Numbers can be written with or without decimals.
+```js
+let x = 3.14;    // A number with decimals
+let y = 3;       // A number without decimals
+```
+Extra large or extra small numbers can be written with scientific (exponent) notation:
+```js
+let x = 123e5;    // 12300000
+let y = 123e-5;   // 0.00123
+```
+
+## JavaScript Numbers are Always 64-bit Floating Point
+
+Unlike many other programming languages, JavaScript does not define different types of numbers, like integers, short, long, floating-point etc.
+
+JavaScript numbers are always stored as double precision floating point numbers, following the international IEEE 754 standard.
+
+This format stores numbers in 64 bits, where the number (the fraction) is stored in bits 0 to 51, the exponent in bits 52 to 62, and the sign in bit 63:
+
+### Integer Precision 
+Integers (numbers without a period or exponent notation) are accurate up to 15 digits.
+```js
+let x = 999999999999999;   // x will be 999999999999999
+let y = 9999999999999999;  // y will be 10000000000000000
+```
+The maximum number of decimals is 17.
+```js
+let precisionExample = 0.123456789012345678; // 18 decimal digits
+console.log(precisionExample); // Outputs: 0.12345678901234568
+```
+In this example, the number 0.123456789012345678 has 18 decimal digits, but due to the limitations of double-precision floating-point representation, it gets rounded to 0.12345678901234568 when printed.
+
+#### How to solve the Problem ?
+
+It's essential to be aware of these limitations when working with decimal numbers in JavaScript. If you need higher precision, especially for financial calculations or other situations where accuracy is crucial, you might consider using libraries like BigDecimal or Decimal.js that provide arbitrary precision arithmetic.
+
+### Floating Precision
+
+Floating point arithmetic is not always 100% accurate:
+
+```js
+let x = 0.2 + 0.1; // 0.2 + 0.1 = 0.30000000000000004
+```
+To solve the problem above, it helps to multiply and divide:
+```js
+let x = (0.2 * 10 + 0.1 * 10) / 10; //  0.3
+```
+### NaN - Not a Number
+NaN is a JavaScript reserved word indicating that a number is not a legal number.
+
+Trying to do arithmetic with a non-numeric string will result in NaN (Not a Number):
+
+```js
+let x = 100 / "Apple"; // NaN
+```
+
+
+
+
+
+
+
+
+
+
 ## Operators
 Types of JavaScript Operators
 
