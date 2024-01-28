@@ -659,3 +659,355 @@ Math.random() returns a random number between 0 (inclusive), and 1 (exclusive):
 ```js
 Math.random();
 ```
+
+
+## Lesson 6.1 - Strings
+
+### JavaScript Strings
+
+Strings are for storing text
+
+Strings are written with quotes
+
+```js
+let text = "John Doe";
+let carName1 = "Volvo XC60";  // Double quotes
+let carName2 = 'Volvo XC60';  // Single quotes
+
+```
+Strings created with single or double quotes works the same.
+
+There is no difference between the two.
+
+### Template Strings
+
+Templates were introduced with ES6 (JavaScript 2016).
+
+Templates are strings enclosed in backticks (`This is a template string`).
+
+Templates allow single and double quotes inside a string:
+
+```js
+let text = `He's often called "Johnny"`;
+```
+### String Length
+```js
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let length = text.length; // 26
+```
+
+### JavaScript Strings as Objects
+Normally, JavaScript strings are primitive values, created from literals:
+
+```js
+let x = "John";
+let y = new String("John");
+let x = "John";
+let y = new String("John");
+```
+Do not create Strings objects.
+
+The new keyword complicates the code and slows down execution speed.
+
+String objects can produce unexpected results:
+
+```js
+let x = new String("John");
+let y = new String("John");
+// false
+// JavaScript objects cannot be compared.
+```
+Comparing two JavaScript objects always returns false.
+
+## Lesson 6.2 - String Methods
+Javascript strings are primitive and immutable: All string methods produces a new string without altering the original string.
+***
+String length<br>
+String charAt()<br>
+String charCodeAt()<br>
+String at()<br>
+String [ ]<br>
+String slice()<br>
+String substring()<br>
+String substr()<br>
+String toUpperCase()<br>
+String toLowerCase()<br>
+String concat()<br>
+String trim()<br>
+String trimStart()<br>
+String trimEnd()<br>
+String padStart()<br>
+String padEnd()<br>
+String repeat()<br>
+String replace()<br>
+String replaceAll()<br>
+String split()<br>
+***
+### String length:
+```js
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let length = text.length;
+```
+## Extracting String Characters : 4 methods
+### String charAt():
+```js
+let text = "HELLO WORLD";
+let char = text.charAt(0); // H
+```
+### String charCodeAt(): The method returns a UTF-16 code (an integer between 0 and 65535).
+```JS
+let text = "HELLO WORLD";
+let char = text.charCodeAt(0); // 72
+```
+```JS
+const name = "W3Schools";
+let letter = name.at(2); // s // get third letter
+
+const name = "W3Schools";
+let letter = name[2]; // get third letter
+```
+## Extracting String Parts : 3 methods 
+- slice(start, end)
+- substring(start, end)
+- substr(start, length)
+
+### String slice() :
+slice() extracts a part of a string and returns the extracted part in a new string.
+```js
+let text = "Apple, Banana, Kiwi";
+let part = text.slice(7, 13); // Banana
+let text = "Apple, Banana, Kiwi";
+let part = text.slice(7); // Banana, Kiwi
+// If a parameter is negative, the position is counted from the end of the string:
+let text = "Apple, Banana, Kiwi";
+let part = text.slice(-12); // Banana, Kiwi
+// This example slices out a portion of a string from position -12 to position -6:
+let text = "Apple, Banana, Kiwi";
+let part = text.slice(-12, -6); // Banana
+```
+###  String substring() : substring() is similar to slice().The difference is that start and end values less than 0 are treated as 0 in substring().
+```js
+let str = "Apple, Banana, Kiwi";
+let part = str.substring(7, 13); // Banana
+let str = "Apple, Banana, Kiwi";
+let part = str.substr(7, 6); // 
+```
+### String substr() :
+```js
+let str = "Apple, Banana, Kiwi";
+let part = str.substr(7, 6);
+// If you omit the second parameter, substr() will slice out the rest of the string.
+let str = "Apple, Banana, Kiwi";
+let part = str.substr(7);
+// If the first parameter is negative, the position counts from the end of the string.
+let str = "Apple, Banana, Kiwi";
+let part = str.substr(-4);
+```
+### String toUpperCase():
+```js
+let text1 = "Hello World!";
+let text2 = text1.toUpperCase(); //  HELLO WORLD!
+```
+### String toLowerCase()
+```js
+let text1 = "Hello World!";       // String
+let text2 = text1.toLowerCase();  // text2 is text1 converted to lower // hello world!
+```
+## Reference For Button CLick
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>Convert string to lower case:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo">Hello World!</p>
+
+<script>
+function myFunction() {
+  let text = document.getElementById("demo").innerHTML;
+  document.getElementById("demo").innerHTML =
+  text.toLowerCase();
+}
+</script>
+
+</body>
+</html>
+
+```
+
+### String concat() : concat() joins two or more strings:
+```js
+let text1 = "Hello";
+let text2 = "World";
+
+let text3 = text1.concat(" ", text2); // Hello World!
+
+text = "Hello" + " " + "World!";
+text = "Hello".concat(" ", "World!");
+
+text = "Hello" + " " + "World!";
+text = "Hello".concat(" ", "World!");
+```
+### String trim() : The trim() method removes whitespace from both sides of a string:
+```js
+let text1 = "      Hello World!      ";
+let text2 = text1.trim();
+```
+### String trimStart() :  The trimStart() method works like trim(), but removes whitespace only from the start of a string.
+```js
+let text1 = "     Hello World!     ";
+let text2 = text1.trimStart();
+```
+### String trimEnd() : The trimEnd() method works like trim(), but removes whitespace only from the end of a string.
+```js
+let text1 = "     Hello World!     ";
+let text2 = text1.trimEnd();
+```
+### String repeat() : 
+```js
+let text = "Hello world!";
+let result = text.repeat(2);
+
+let text = "Hello world!";
+let result = text.repeat(4);
+```
+
+### String replace() :
+```js
+let text = "Please visit Microsoft!";
+let newText = text.replace("Microsoft", "W3Schools");
+
+let text = "Please visit Microsoft and Microsoft!";
+let newText = text.replace("Microsoft", "W3Schools");
+
+```
+The replace() method does not change the string it is called on.
+
+The replace() method returns a new string.
+
+The replace() method replaces only the first match
+
+If you want to replace all matches, use a regular expression with the /g flag set. See examples below.
+
+### String replaceALl() : 
+```js
+let text = "I love cats. Cats are very easy to love. Cats are very popular."
+text = text.replaceAll("Cats","Dogs");
+text = text.replaceAll("cats","dogs");
+// I love dogs. Dogs are very easy to love. Dogs are very popular.
+```
+
+## Converting a String to an Array
+
+### String split() : 
+```js
+let text = "a,b,c,d,e,f";
+const myArray = text.split(","); // a
+
+let text = "Hello";
+const myArr = text.split("");
+
+text = "";
+for (let i = 0; i < myArr.length; i++) {
+  text += myArr[i] + "<br>"
+}
+
+```
+## Lesson 6.3 - String Search
+
+### String indexOf() : The indexOf() method returns the index (position) of the first occurrence of a string in a string, or it returns -1 if the string is not found:
+```js
+let text = "Please locate where 'locate' occurs!";
+let index = text.indexOf("locate"); // 7
+
+// Both methods accept a second parameter as the starting position for the search:
+let text = "Please locate where 'locate' occurs!";
+let index = text.indexOf("locate", 15);
+
+```
+### String lastIndexOf() : The lastIndexOf() method returns the index of the last occurrence of a specified text in a string:
+```js
+let text = "Please locate where 'locate' occurs!";
+let index = text.lastIndexOf("locate"); // 21
+// The lastIndexOf() methods searches backwards (from the end to the beginning), meaning: if the second parameter is 15, the search starts at position 15, and searches to the beginning of the string.
+let text = "Please locate where 'locate' occurs!";
+text.lastIndexOf("locate", 15);
+``` 
+### String search() : The search() method searches a string for a string (or a regular expression) and returns the position of the match
+```js
+let text = "Please locate where 'locate' occurs!";
+text.search("locate");
+```
+
+### String match() :
+```js
+let text = "The rain in SPAIN stays mainly in the plain";
+text.match(/ain/g); // 3 ain,ain,ain
+
+let text = "The rain in SPAIN stays mainly in the plain";
+text.match(/ain/gi); // 4 ain,AIN,ain,ain
+
+let text = "The rain in SPAIN stays mainly in the plain";
+text.match(/ain/); // 1 ain
+
+let text = "The rain in SPAIN stays mainly in the plain";
+text.match("ain");  // 1 ain
+```
+### String matchAll() :
+```js
+const iterator = text.matchAll("Cats");
+const iterator = text.matchAll(/Cats/gi); // Case-sencetive
+```
+### String includes() :
+```js
+let text = "Hello world, welcome to the universe.";
+text.includes("world");
+let text = "Hello world, welcome to the universe.";
+text.includes("world", 12);
+```
+### String startsWith() :
+```js
+let text = "Hello world, welcome to the universe.";
+text.startsWith("Hello");
+let text = "Hello world, welcome to the universe.";
+text.startsWith("world")
+// A start position for the search can be specified:
+let text = "Hello world, welcome to the universe.";
+text.startsWith("world", 5)
+let text = "Hello world, welcome to the universe.";
+text.startsWith("world", 6)
+
+```
+### String endsWith() :
+```js
+let text = "John Doe";
+text.endsWith("Doe");
+
+let text = "Hello world, welcome to the universe.";
+text.endsWith("world", 11);
+```
+
+## Lesson 6.4 - String Templates
+```js
+let text = `Hello World!`;
+let text =
+`The quick
+brown fox
+jumps over
+the lazy dog`;
+
+let firstName = "John";
+let lastName = "Doe";
+
+let text2 = `Welcome ${firstName}, ${lastName}!`;
+
+let price = 10;
+let VAT = 0.25;
+let total = `Total: ${(price * (1 + VAT)).toFixed(2)}`;
+
+```
