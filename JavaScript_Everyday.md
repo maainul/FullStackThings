@@ -659,7 +659,9 @@ Math.random() returns a random number between 0 (inclusive), and 1 (exclusive):
 ```js
 Math.random();
 ```
+<hr/>
 
+# 6.Strings
 
 ## Lesson 6.1 - Strings
 
@@ -771,8 +773,7 @@ let letter = name[2]; // get third letter
 - substring(start, end)
 - substr(start, length)
 
-### String slice() :
-slice() extracts a part of a string and returns the extracted part in a new string.
+### String slice() : slice() extracts a part of a string and returns the extracted part in a new string.
 ```js
 let text = "Apple, Banana, Kiwi";
 let part = text.slice(7, 13); // Banana
@@ -1009,5 +1010,171 @@ let text2 = `Welcome ${firstName}, ${lastName}!`;
 let price = 10;
 let VAT = 0.25;
 let total = `Total: ${(price * (1 + VAT)).toFixed(2)}`;
+
+```
+<hr/>
+
+# 7. Arrays
+
+## 7.1 . JavaScript Arrays
+
+An array is a special variable, which can hold more than one value:
+
+```js
+const cars = ["Saab", "Volvo", "BMW"];
+const cars = [
+  "Saab",
+  "Volvo",
+  "BMW"
+];
+const cars = [];
+cars[0]= "Saab";
+cars[1]= "Volvo";
+cars[2]= "BMW";
+const cars = new Array("Saab", "Volvo", "BMW");
+
+```
+The two examples above do exactly the same.
+
+There is no need to use new Array().
+
+For simplicity, readability and execution speed, use the array literal method.
+
+```js
+const cars = ["Saab", "Volvo", "BMW"];
+let car = cars[0];
+```
+## Converting an Array to a String
+
+The JavaScript method toString() converts an array to a string of (comma separated) array values.
+```js
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+```
+##  JavaScript Array Methods
+
+Basic Array Methods
+
+Array length<br>
+Array toString()<br>
+Array at()<br>
+Array join()<br>
+Array pop()<br>
+Array push()<br>
+Array shift()<br>
+Array unshift()<br>
+Array delete()<br>
+Array concat()<br>
+Array copyWithin()<br>
+Array flat()<br>
+Array splice()<br>
+Array toSpliced()<br>
+Array slice()<br>
+
+
+```js
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let size = fruits.length;
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits.at(2);
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.pop();
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits.pop();
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.push("Kiwi");
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let length = fruits.push("Kiwi");
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.shift();
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits.shift(); // Remove From First (Banana)
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.unshift("Lemon"); // Add Frist
+
+const myGirls = ["Cecilie", "Lone"];
+const myBoys = ["Emil", "Tobias", "Linus"];
+
+const myChildren = myGirls.concat(myBoys); // ["Cecilie", "Lone","Emil", "Tobias", "Linus"]
+
+const array1 = ["Cecilie", "Lone"];
+const array2 = ["Emil", "Tobias", "Linus"];
+const array3 = ["Robin", "Morgan"];
+
+const myChildren = array1.concat(array2, array3); // [Cecilie,Lone,Emil,Tobias,Linus,Robin,Morgan]
+```
+
+### Array copyWithin() : 
+```js
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.copyWithin(2, 0); // 
+```
+### Flattening an Array
+
+Flattening an array is the process of reducing the dimensionality of an array.
+
+Flattening is useful when you want to convert a multi-dimensional array into a one-dimensional array.
+
+### JavaScript Array flat()
+The flat() method creates a new array with sub-array elements concatenated to a specified depth.
+```js
+const myArr = [[1,2],[3,4],[5,6]];
+const newArr = myArr.flat(); // 1,2,3,4,5,6
+```
+
+### Splicing and Slicing Arrays
+
+The splice() method adds new items to an array.
+
+The slice() method slices out a piece of an array.
+
+### JavaScript Array splice()
+```js
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 0, "Lemon", "Kiwi"); // ["Banana", "Orange","Lemon", "Kiwi","Apple", "Mango"];
+``` 
+The first parameter (2) defines the position where new elements should be added (spliced in).
+
+The second parameter (0) defines how many elements should be removed.
+
+The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
+```js
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 2, "Lemon", "Kiwi"); // ["Banana", "Orange", "Lemon", "Kiwi"];
+```
+### Using splice() to Remove Elements 
+
+With clever parameter setting, you can use splice() to remove elements without leaving "holes" in the array:
+
+```js
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(0, 1); // Banana
+```
+### JavaScript Array slice()
+
+```js
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1); // ["Orange", "Lemon", "Apple", "Mango"]
+
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(3); // Apple,Mango
+
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1,3); // Orange,Lemon
+
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(2); // Lemon,Apple,Mango
+```
+## JavaScript Array Search
+
+```js
 
 ```
