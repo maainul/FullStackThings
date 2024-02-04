@@ -1098,7 +1098,7 @@ const fruits = ["Banana", "Orange", "Apple", "Mango"];
 let fruit = fruits.shift(); // Remove From First (Banana)
 
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
-fruits.unshift("Lemon"); // Add Frist
+fruits.unshift("Lemon"); // Add Frist // "Lemon", "Banana", "Orange", "Apple", "Mango
 
 const myGirls = ["Cecilie", "Lone"];
 const myBoys = ["Emil", "Tobias", "Linus"];
@@ -1175,6 +1175,72 @@ const citrus = fruits.slice(2); // Lemon,Apple,Mango
 ```
 ## JavaScript Array Search
 
-```js
+### JavaScript Array indexOf()
 
+The indexOf() method searches an array for an element value and returns its position.<br>
+Note: The first item has position 0, the second item has position 1, and so on.
+
+```js
+const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.indexOf("Apple") + 1;
+
+```
+### JavaScript Array lastIndexOf()
+
+Array.lastIndexOf() is the same as Array.indexOf(), but returns the position of the last occurrence of the specified element.
+
+```js
+const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.lastIndexOf("Apple") + 1;
+```
+### JavaScript Array includes()
+```js
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+fruits.includes("Mango"); // is true
+```
+## JavaScript Sorting Arrays
+
+### Alpabetic Sort
+
+Array sort()<br>
+Array reverse()<br>
+Array toSorted()<br>
+Array toReversed()<br>
+
+### Numeric Sort
+Numeric Sort
+Random Sort
+Math.min()
+Math.max()
+Home made Min()
+Home made Max()
+
+### Sorting an Array : 
+```js
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort(); // Apple,Banana,Mango,Orange
+```
+### Reversing an Array
+```js
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.reverse(); // Mango,Apple,Orange,Banana
+```
+### JavaScript Array toSorted() Method
+```js
+const months = ["Jan", "Feb", "Mar", "Apr"]; // New Array
+const reversed = months.toReversed(); // Apr,Mar,Feb,Jan
+```
+### JavaScript Array toReversed() Method
+```js
+const months = ["Jan", "Feb", "Mar", "Apr"];
+const reversed = months.toReversed(); // Apr,Mar,Feb,Jan
+```
+
+### Numeric Sort
+
+```js
+const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return a - b}); // 1,5,10,25,40,100
+points.sort(function(a, b){return b - a}); // 100,40,25,10,5,1
 ```
