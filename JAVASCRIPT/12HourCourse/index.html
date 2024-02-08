@@ -9,25 +9,63 @@
 </head>
 
 <body>
-
     <!-- Find Radius -->
-    <input type="text" id="myRadius" />
-    <button type="submit" id="mySubmit">Submit</button>
-    <h1 id="myShowCircum">Circumference = </h1>
+    <div class="counter">
+        <input type="text" id="myRadius" />
+        <button type="submit" id="mySubmit">Submit</button>
+        <h1 id="myShowCircum">Circumference = </h1>
+    </div>
 
     <!-- Counter  -->
     <div class="counter">
-
-        <label for="" id="countLabel"> 0 </label>
+        <label id="countLabel" class="counter-label"> 0 </label>
         <div class="counter-buttons">
-
             <button id="decreaseBtn">Decrease</button>
             <button id="resetBtn">Reset</button>
             <button id="increaseBtn">Increase</button>
         </div>
     </div>
+    <!-- Random  -->
+    <div class="counter">
+        <label id="randomShow" class="counter-label"> 0 </label>
+        <div class="counter-buttons">
+            <button id="randomBtn">Generate Random Number</button>
+        </div>
+    </div>
+    <!-- IF ELSE BUTTONS -->
+    <div class="counter">
+        <h2>If Else Check</h3>
+        <div class="counter-buttons">
+            <input type="number" id="inputText" />
+            <button id="submitBtn">Submit</button>
+        </div>
+        <p id="message"></p>
+    </div>
+    <!-- Checkbox and Radio -->
+    <div class="counter">
+        <input type="checkbox" id="myCheckBox" />
+        <label class="checkboxInput" for="myCheckBox" >Subscribe</label>
+        <hr/>
 
+        <!-- Radio Button -->
+        <input type="radio" id="visaBtn" name="card"/>
+        <label class="checkboxInput" for="visaBtn" >Visa</label>
+
+        <input type="radio" id="masterCardBtn" name="card"/>
+        <label class="checkboxInput" for="masterCardBtn" >Master Card</label>
+
+        <input type="radio" id="payPalBtn" name="card"/>
+        <label class="checkboxInput" for="payPalBtn" >Pay Pal</label>
+        <div class="counter-buttons">
+            <div>
+                <button id="checkBoxsubmitBtn">Submit</button>
+            </div>
+        </div>
+        <p id="subResult"></p>
+        <p id="paymentResult"></p>
+    </div>
     <script src="script.js"> </script>
 </body>
 
 </html>
+

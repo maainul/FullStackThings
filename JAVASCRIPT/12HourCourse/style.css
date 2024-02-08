@@ -4,9 +4,10 @@
     width: 350px;
     padding: 20px;
     border-radius: 8px;
+    margin: 10px;
 }
 
-.counter label {
+.counter-label {
     font-size: 4rem;
     font-weight: bold;
     /* margin-left: 150px; */
@@ -34,4 +35,9 @@
 .counter-buttons button:hover {
     cursor: pointer;
     background-color: aqua;
+}
+
+.checkboxInput{
+    font-weight: 15px;
+    color: black;
 }
