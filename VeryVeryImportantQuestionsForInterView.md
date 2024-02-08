@@ -86,3 +86,7 @@ Here are some benefits of handling validations before the database query:
 **Clearer Error Messages:** Custom error messages can be provided to users based on the specific validation checks, making it easier for them to understand and correct their input.
 
 Your code demonstrates a good practice by handling these validations before interacting with the database. Just ensure that your validation logic is comprehensive and covers all relevant scenarios.
+
+https://javascript.plainenglish.io/top-10-reactjs-coding-interview-challenge-for-2024-c1e591f9384c
+
+https://blog.stackademic.com/react-native-masters-solid-principles-in-react-react-native-a1b8df8d261d
