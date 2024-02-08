@@ -165,4 +165,24 @@ switch(day){
 }
 
 
-  
+// Array
+
+let fruits = ['apple','orange','banana','coconut']
+
+console.log(fruits)
+
+fruits.pop() // Remove from last
+console.log(fruits)
+
+fruits.shift() // remove from first
+console.log(fruits)
+
+fruits.unshift('mango') // add to first
+console.log(fruits)
+
+fruits.push('grape')
+
+console.log(fruits)
+
+let noOfFruits = fruits.indexOf('man')
+console.log(noOfFruits)
