@@ -73,9 +73,9 @@ const max = 100
 const randomLabel = document.getElementById('randomShow')
 const randBtn = document.getElementById('randomBtn')
 
-randBtn.onclick = function (){
-   let randNum = Math.floor(Math.random() * 100) + 1
-   randomLabel.textContent = randNum
+randBtn.onclick = function () {
+    let randNum = Math.floor(Math.random() * 100) + 1
+    randomLabel.textContent = randNum
 }
 
 
@@ -87,13 +87,13 @@ const message = document.getElementById('message')
 submitBtn.onclick = function () {
     let val = inputText.value
     val = Number(val)
-    if(val < 0){
+    if (val < 0) {
         message.textContent = 'Your age is 0. You are new Born baby.'
-    }else if(val < 18){
+    } else if (val < 18) {
         message.textContent = 'Your age is less than 18. You are not eligible'
-    }else if(val > 100){
+    } else if (val > 100) {
         message.textContent = 'Your age is More than 100. You are Too old'
-    }else{
+    } else {
         message.textContent = 'Your can access.'
     }
 }
@@ -115,22 +115,22 @@ const checkBoxsubmitBtn = document.getElementById('checkBoxsubmitBtn')
 const subResult = document.getElementById('subResult')
 const paymentResult = document.getElementById('paymentResult')
 
-checkBoxsubmitBtn.onclick = function() {
-    if(myCheckBox.checked){
+checkBoxsubmitBtn.onclick = function () {
+    if (myCheckBox.checked) {
         subResult.textContent = `You are Subscribed.....`
         subResult.style.color = 'green'
-    }else{
+    } else {
         subResult.textContent = `You are NOT Subscribed.....`
         subResult.style.color = 'red'
     }
 
-    if(visaBtn.checked){
-        paymentResult.textContent ='You are Paying with visa'
-    } else if(masterCardBtn.checked){
-        paymentResult.textContent ='You are Paying with Master Card'
-    } else if(payPalBtn.checked){
-        paymentResult.textContent ='You are Paying with Paypal'
-    }else{
+    if (visaBtn.checked) {
+        paymentResult.textContent = 'You are Paying with visa'
+    } else if (masterCardBtn.checked) {
+        paymentResult.textContent = 'You are Paying with Master Card'
+    } else if (payPalBtn.checked) {
+        paymentResult.textContent = 'You are Paying with Paypal'
+    } else {
         paymentResult.textContent = 'You must select a Payment Type'
     }
 }
@@ -138,26 +138,26 @@ checkBoxsubmitBtn.onclick = function() {
 // Ternary OPERATOR : Short Cut to If Else Statement
 // Switch Statement is efficient way to write switch case
 let day = 8
-switch(day){
-    case 1 : 
+switch (day) {
+    case 1:
         console.log('Monday')
         break
-    case 2 : 
+    case 2:
         console.log('Tuesday')
         break
-    case 3 : 
+    case 3:
         console.log('Wednesday')
         break
-    case 4 : 
+    case 4:
         console.log('Thursday')
         break
-    case 5 : 
+    case 5:
         console.log('Friday')
         break
-    case 6 : 
+    case 6:
         console.log('Saturday')
         break
-    case 7 : 
+    case 7:
         console.log('Sunday')
         break
     default:
@@ -167,7 +167,7 @@ switch(day){
 
 // Array
 
-let fruits = ['apple','orange','banana','coconut']
+let fruits = ['apple', 'orange', 'banana', 'coconut']
 
 console.log(fruits)
 
@@ -186,3 +186,16 @@ console.log(fruits)
 
 let noOfFruits = fruits.indexOf('man')
 console.log(noOfFruits)
+
+// REST PARAMETER
+function openFridge(...foods) {
+    console.log(foods)
+}
+
+const food1 = 'Pizza'
+const car = 'BMW'
+const food3 = 125
+const food4 = 'Pizza'
+const food5 = 125.69
+
+openFridge(food1, car, food3, food4, food5)
