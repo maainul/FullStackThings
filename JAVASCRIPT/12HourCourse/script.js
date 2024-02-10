@@ -304,3 +304,164 @@ class Product {
 }
 const product1 = new Product("Shirt", 19.44)
 product1.displayProduct()
+
+
+
+// Array of objects
+
+const fruitss = [
+    {name:'apple',color:'red',calories:95},
+    {name:'orange',color:'orange',calories:120},
+    {name:'banana',color:'yellow',calories:195},
+    {name:'coconut',color:'yellow',calories:85}
+]
+
+// console.log(fruitss[0].name)
+// console.log(fruitss[0].name)
+// console.log(fruitss[1].color)
+// console.log(fruitss[1].calories)
+// console.log(fruitss[2].name)
+
+const fruitNames = fruitss.map(fruit => fruit.name);
+const fruitColor = fruitss.map(fruit => fruit.color);
+const fruitColories = fruitss.map(fruit => fruit.calories);
+
+
+console.log(fruitNames)
+console.log(fruitColor)
+console.log(fruitColories)
+
+
+const yellowFruits = fruitss.filter(fruit => fruit.color === "yellow")
+const lowFruitCalories = fruitss.filter(fruit => fruit.calories < 100 )
+const highFruitCalories = fruitss.filter(fruit => fruit.calories > 100 )
+
+console.log(yellowFruits)
+console.log(lowFruitCalories)
+console.log(highFruitCalories)
+
+// Reduce Method Will Return a Single Value
+
+const maxFruit = fruitss.reduce(
+    (max, fruit) => 
+            fruit.calories > max.calories ? fruit : max );
+
+console.log(maxFruit)
+
+let numbers = [10, 12, 53, 84, 9]
+
+numbers.sort((a,b) => a - b)
+numbers.sort((a,b) => b -a)
+console.log(numbers)
+
+
+let person = [
+    {name:'spongberg',age:30, gpa:3.0},
+    {name:'patrick',age:37, gpa:1.5},
+    {name:'squidward',age:51, gpa:2.5},
+    {name:'sandy',age:27, gpa:4.0},
+    {name:'andy',age:29, gpa:2.0},
+]
+
+person.sort((a,b)=> a.age - b.age)
+person.sort((a,b)=> a.gpa - b.gpa)
+person.sort((a,b)=> a.name - b.name)
+
+console.log(person)
+
+
+// const cards = ['A',2,3,4,5,6,7,8,9,10,'J','Q','K']
+// shuffle(cards)
+// console.log(cards)
+
+// function shuffle(array){
+//     for(let i = array.length -1; i >=0; i--){
+//         const random = Math.floor(Math.random() * (i + 1))
+//         [array[i], array[random]] = [array[random], array[i]]
+//     }
+// }
+
+
+//  Date Object in js
+// Date(year,month,day,hour,day,minute,second,ms)
+// const date = new Date("2024-01-02T12:00:00Z")
+const date = new Date()
+const year = date.getFullYear()
+const month = date.getMonth()
+const days = date.getDate()
+
+console.log(year,month,days)
+
+
+
+function CreateGame () {
+    let score = 0;
+    function increaseScore(points){
+        score += points;
+        console.log(`+${points} pts`)
+    }
+    
+    function decreaseScore(points){
+        score -= points
+        console.log(`-${points}pts`)
+    }
+    
+    function getScore(){
+        return score
+    }
+    return {increaseScore,decreaseScore,getScore}    
+}
+
+    CreateGame().increaseScore(5)
+    CreateGame().increaseScore(5)
+    CreateGame().getScore()
+
+console.log(getScore())
+
+// SetTimeout
+const timeOtID = setTimeout(()=> window.alert('Hello'),3000);
+
+//
+
+
+function startTimer() {
+    setTimeout(()=> window.alert('Hello'), 3000)
+}
+
+function clearTime() {
+    setTimeout(()=> window.alert('Hello'), 3000)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+

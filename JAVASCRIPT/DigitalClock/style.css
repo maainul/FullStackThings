@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+    background-image: url('img/1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#clock-container{
+    display: flex;
+    justify-content: center;
+    /*  vertically alligned */
+    align-items: center;
+    height: 100vh;
+}
+
+#clock{
+    font-family: monospace;
+    font-size: 8.5rem;
+    font-weight: bold;
+    text-align: center;
+    color:yellow;
+    backdrop-filter: blur(2px);
+    /* width: 50%; */
+    border-radius: 10px;
+background-color: hsla(0, 0%, 100%,0.1);
+
+}
+
+#day{
+    font-family: monospace;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    color:rgb(8, 192, 84);
+}
+
+.menu{
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
+.menu img{
+    height: 25px;
+
+}
+
+.menu img:hover{
+    cursor: pointer;
+}
