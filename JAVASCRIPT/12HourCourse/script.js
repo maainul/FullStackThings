@@ -199,3 +199,108 @@ const food4 = 'Pizza'
 const food5 = 125.69
 
 openFridge(food1, car, food3, food4, food5)
+
+
+let nums = [1, 2, 3, 4, 5]
+nums.forEach(double)
+nums.forEach(tripple)
+nums.forEach(square)
+nums.forEach(cube)
+nums.forEach(display)
+
+
+function double(element, index, array) {
+    array[index] = element * 2
+}
+
+function tripple(element, index, array) {
+    array[index] = element * 3
+}
+
+function square(element, index, array) {
+    array[index] = Math.pow(element, 3)
+}
+
+function cube(element, index, array) {
+    array[index] = element * element * element
+}
+
+function display(element) {
+    console.log(element)
+}
+
+
+let myFruits = ["apple", "orange", "banana", "coconut"]
+
+// myFruits.forEach(toUpperCase)
+myFruits.forEach(capitalize)
+myFruits.forEach(display)
+
+function toUpperCase(element, index, array) {
+    array[index] = element.toUpperCase()
+}
+
+function capitalize(element, index, array) {
+    array[index] = element.charAt(0).toUpperCase() + element.slice(1)
+}
+
+const sqrt = nums.map(square)
+
+console.log(sqrt)
+
+function square(element, array, index) {
+    return Math.pow(element, 2)
+}
+
+const students = ["karim", 'jamal', 'kamal', 'uday']
+
+const stuUpper = students.map(uppercase)
+console.log(stuUpper)
+
+function uppercase(element) {
+    return element.toUpperCase()
+}
+
+const prices = [5, 30, 10, 25, 15, 20]
+
+
+const maximum = prices.reduce(getMax)
+const miniMum = prices.reduce(getMin)
+
+console.log(maximum)
+console.log(miniMum)
+
+function getMax(accumulator, element) {
+    return Math.max(accumulator, element)
+}
+
+
+function getMin(accumulator, element) {
+    return Math.min(accumulator, element)
+}
+
+const person1 = {
+    perName: "spongebarg",
+    favFood: "hotdogs",
+    sayHello: function () { console.log(`I am ${this.favFood}`) },
+    eat: function () { console.log(`this ${this.perName} is eating ${this.favFood}`) }
+
+}
+
+person1.eat()
+person1.sayHello()
+
+
+
+class Product {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price
+    }
+    displayProduct() {
+        console.log(`Product : ${this.name}`)
+        console.log(`Price : ${this.price}`)
+    }
+}
+const product1 = new Product("Shirt", 19.44)
+product1.displayProduct()
