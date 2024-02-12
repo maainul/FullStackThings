@@ -1,27 +1,39 @@
 const slides = document.querySelectorAll(".slides img")
-console.log(slides)
-
 let slideIndex = 0;
 let intervalId = null
 
+document.addEventListener("DOMContentLoaded", initializeSlider)
 
+function initializeSlider() {
+    if (slides.length > 0) {
+        slides[slideIndex].classList.add("displaySlide")
+        intervalId = setInterval(nextSlide, 2000)
+    }
+}
 
-initializeSlider();
+function showSlide(index) {
+    if (index >= slides.length) {
+        slideIndex = 0;
+    } else if (index < 0) {
+        slideIndex = slides.length - 1
+    }
 
-function initializeSlider () {
+    slides.forEach(slide => {
+        slide.classList.remove("displaySlide")
+    })
     slides[slideIndex].classList.add("displaySlide")
 }
 
-function showSlide(index){
 
+function prevSlide() {
+    // clearInterval(intervalId);
+    slideIndex--;
+    showSlide(slideIndex);
 }
 
 
-function prevSlide(){
-
-}
-
-
-function nextSlide(){
+function nextSlide() {
+    slideIndex++
+    showSlide(slideIndex)
 
 }
