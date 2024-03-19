@@ -1,4 +1,4 @@
-# Modal  With Tailwind Css
+# Modal  With Tailwind Css : Follow this Video if needed : https://www.youtube.com/watch?v=kcpe4kqZaKg&ab_channel=FullStackNiraj
 
 1. install tailwind from this site : 
     https://tailwindcss.com/docs/guides/create-react-app
