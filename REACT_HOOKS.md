@@ -395,3 +395,180 @@ function AuthContextProvider(props) {
 export default AuthContext;
 export { AuthContextProvider };
 ```
+
+## useReducer
+
+The useReducer hook in React is a way to manage complex state logic in a functional component. It's an alternative to useState, especially when the state logic involves multiple sub-values or when the next state depends on the previous one. It is inspired by the redux library and provides a more scalable way to handle state compared to useState.
+
+Using useReducer is particularly beneficial in complex forms where you have many fields and need to manage state transitions in a clear and consistent manner. It keeps your state logic organized, scalable, and easier to maintain. If your form is simple, useState might be sufficient, but as complexity grows, useReducer becomes more advantageous.
+
+```js
+import React, { useReducer } from "react";
+
+// Define the initial state
+const initialState = { count: 0 };
+
+// Define the reducer function
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+}
+
+function Counter() {
+  // Use useReducer to get state and dispatch function
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+### When to Use useReducer
+
+```js
+const [state, setState] = useState({ count: 0, loading: false, error: null });
+
+function increment() {
+  setState((prevState) => ({ ...prevState, count: prevState.count + 1 }));
+}
+
+function setLoading(loading) {
+  setState((prevState) => ({ ...prevState, loading }));
+}
+
+function setError(error) {
+  setState((prevState) => ({ ...prevState, error }));
+}
+```
+
+With useReducer, the state transitions are more explicit and organized:
+
+```js
+const initialState = { count: 0, loading: false, error: null };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { ...state, count: state.count + 1 };
+    case "setLoading":
+      return { ...state, loading: action.payload };
+    case "setError":
+      return { ...state, error: action.payload };
+    default:
+      throw new Error();
+  }
+}
+
+const [state, dispatch] = useReducer(reducer, initialState);
+```
+
+Multiple State Transitions: If you have several state transitions that need to happen in response to a single action or event, useReducer can handle them more cleanly.
+
+```js
+function loadData() {
+  setLoading(true);
+  fetch("/api/data")
+    .then((response) => response.json())
+    .then((data) => {
+      setData(data);
+      setLoading(false);
+    })
+    .catch((error) => {
+      setError(error);
+      setLoading(false);
+    });
+}
+```
+
+```js
+const initialState = { data: null, loading: false, error: null };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "fetch_start":
+      return { ...state, loading: true };
+    case "fetch_success":
+      return { ...state, loading: false, data: action.payload };
+    case "fetch_error":
+      return { ...state, loading: false, error: action.payload };
+    default:
+      throw new Error();
+  }
+}
+
+const [state, dispatch] = useReducer(reducer, initialState);
+
+function loadData() {
+  dispatch({ type: "fetch_start" });
+  fetch("/api/data")
+    .then((response) => response.json())
+    .then((data) => dispatch({ type: "fetch_success", payload: data }))
+    .catch((error) => dispatch({ type: "fetch_error", payload: error }));
+}
+```
+
+### Here’s a more comprehensive example demonstrating the benefits of useReducer:
+
+```js
+import React, { useReducer, useEffect } from "react";
+
+const initialState = {
+  data: null,
+  loading: false,
+  error: null,
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "FETCH_INIT":
+      return { ...state, loading: true, error: null };
+    case "FETCH_SUCCESS":
+      return { ...state, loading: false, data: action.payload };
+    case "FETCH_FAILURE":
+      return { ...state, loading: false, error: action.payload };
+    default:
+      throw new Error();
+  }
+}
+
+function DataFetchingComponent() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    dispatch({ type: "FETCH_INIT" });
+    fetch("/api/data")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: "FETCH_SUCCESS", payload: data }))
+      .catch((error) => dispatch({ type: "FETCH_FAILURE", payload: error }));
+  }, []);
+
+  const { data, loading, error } = state;
+
+  return (
+    <div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Error: {error.message}</p>
+      ) : (
+        <p>Data: {JSON.stringify(data)}</p>
+      )}
+    </div>
+  );
+}
+
+export default DataFetchingComponent;
+```
