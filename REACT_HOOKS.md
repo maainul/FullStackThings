@@ -683,4 +683,50 @@ export default ParentComponent
 
 ![Screenshot3](https://github.com/user-attachments/assets/e628a1f0-d5c7-44dc-99b6-a9c234ecd7f2)
 
+## useMemo : 
+
+### Counter.js
+```js
+import react,{useState} from 'react'
+
+
+function Counter(){
+  const [counterOne,setCounterOne] = useState(0)
+  const [counterTwo,setCounterTwo] = useState(0)
+
+  const incrementOne()=>{
+    setCounterOne(counterOne+1)
+  }
+
+  const incrementTwo()=>{
+    setCounterTwo(counterTwo+1)
+  }
+
+  const isEven = useMemo(()=>{
+    let i = 0;
+    while(i < 20000000)i++
+    return counterOne % 2 === 0
+  },[counterOne])
+
+
+  return (
+    <div>
+      <div>
+            <button onClick={incrementOne} >Count One - {counterOne}</button>
+            <span>{isEven ? 'Even' : 'Odd'}</span>
+      </div>
+       <div>
+            <button onClick={decrementTwo}>Count Two - {counterTwo}</button>
+      </div>
+    </div>
+  )
+}
+
+export default Counter
+```
+If we render button One then it will taken time.If we use useMemo() then it will cashed value then when need then we can use it
+
+For useMemo() ==> cashed Value
+
+useCallback() ==> cashed Function
 
