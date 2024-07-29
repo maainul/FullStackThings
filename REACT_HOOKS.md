@@ -730,3 +730,52 @@ For useMemo() ==> cashed Value
 
 useCallback() ==> cashed Function
 
+## useRef():
+The useRef hook in React is used to persist values across renders without causing a re-render when the value changes. It's often used to reference DOM elements, store mutable variables, or hold previous state values.
+
+```js
+import React,{useEffect,useRef} from 'react'
+
+
+function FocusInput(){
+  const inputRef = useRef(null)
+
+  useEffect(()=>{
+    inputRef.current.focus()
+  },[])
+
+  return (
+    <div>
+      <input ref={inputRef} type='text' />
+    </div>
+  )
+}
+
+export default FocusInput
+```
+Example: Storing Previous State
+
+```js
+import React, { useState, useRef, useEffect } from 'react';
+
+const PreviousStateExample = () => {
+    const [count, setCount] = useState(0);
+    const prevCountRef = useRef();
+
+    useEffect(() => {
+        prevCountRef.current = count;
+    }, [count]);
+
+    const prevCount = prevCountRef.current;
+
+    return (
+        <div>
+            <p>Current Count: {count}</p>
+            <p>Previous Count: {prevCount}</p>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+    );
+};
+
+export default PreviousStateExample;
+```
