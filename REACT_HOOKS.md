@@ -572,3 +572,115 @@ function DataFetchingComponent() {
 
 export default DataFetchingComponent;
 ```
+## useCallback:
+
+The useCallback hook in React is used to memoize functions so that they do not get recreated on every render. This can be useful to avoid unnecessary re-renders, especially when passing callbacks to child components.
+
+
+OR
+
+useCallback is a hook that will return a memoized verion of the callback function that only changes if one of the dependencies has changes.
+
+
+```jsx
+import React from 'react'
+import Count form './Count'
+import Button from './Button'
+import Title from './Title' 
+
+function ParentComponent(){
+  const [age,setAge] = useState(18)
+  const [salary,setSalary] = useState(30000)
+
+  const incrementCount = ()=>{
+    setCount(age => age +1)
+  }
+
+  const incrementSalary = ()=>{
+    setSalary(salary => salary + 1000)
+  }
+
+
+  return(
+    <div>
+      <Title />
+      <Count text="Age" count = {age} />
+      <Button handleClick={incrementCount}>Increment Age</Button>
+      <Count text="Salary" count={salary} />
+      <Button handleClick={incrementSalary}>Increment Salary</Button>
+    </div>
+  )
+
+}
+export default ParentComponent
+```
+
+### Count
+```js
+import React from 'react'
+
+function Count({text,count}){
+  console.log(`Rendering ${text}`)
+  return (<div>{text} - {count}</div>)
+}
+
+export default Count
+```
+
+### Button
+```js
+import React from 'react'
+
+function Button({handleClick,children}){
+  console.log(`Rendering Button - `,children)
+  return (
+    <button onClick={handleClick}>{children}</button>
+  )
+}
+
+export default Button 
+
+```
+![Screenshot](https://github.com/user-attachments/assets/f3fff1bc-8750-4964-be26-4497f1197096)
+
+When Click increment age it will increment age that will render all the componet .
+
+![Screenshot2](https://github.com/user-attachments/assets/13a16d9e-f4e6-45d8-9be2-bc1d1b5fd5e9)
+
+But i need a that if i only change age then age related data will be changes.
+
+```jsx
+import React,{useState,useCallback} from 'react'
+import Count form './Count'
+import Button from './Button'
+import Title from './Title' 
+
+function ParentComponent(){
+  const [age,setAge] = useState(18)
+  const [salary,setSalary] = useState(30000)
+
+  const incrementCount = useCallback(()=>{
+    setAge(age => age +1)
+  },[age])
+
+  const incrementSalary = useCallback(()=>{
+    setSalary(salary => salary + 1000)
+  },[salary])
+
+  return(
+    <div>
+      <Title />
+      <Count text="Age" count = {age} />
+      <Button handleClick={incrementCount}>Increment Age</Button>
+      <Count text="Salary" count={salary} />
+      <Button handleClick={incrementSalary}>Increment Salary</Button>
+    </div>
+  )
+
+}
+export default ParentComponent
+```
+
+![Screenshot3](https://github.com/user-attachments/assets/e628a1f0-d5c7-44dc-99b6-a9c234ecd7f2)
+
+
