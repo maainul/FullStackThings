@@ -4,6 +4,13 @@
 4. React Context
 5. React State
 6. React Component Life-Cycle
+7. React Router
+8. ReactJS advantages
+9. ReactJS Component
+10. React Events
+11. React Fragments
+12. React Lists
+
 
 # Important Commands
 
@@ -553,3 +560,291 @@ componentDidMount() : Component Did Mount
 componentWillUpdate(): Component Will UPDATE!
 
 componentDidUpdate(): Component Did UPDATE!
+
+
+# 7. React Router
+1. ReactJS Router is mainly used for developing Single Page Web Applications. 
+2. React Router is used to define multiple routes in the application
+3. React Router is a standard library system built on top of the React and used to create routing in the React application using React Router Package.   
+
+        npm install react-router-dom --save  
+
+
+### What is Route?
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {Route,Link,BrowserRouter as Router} from 'react-router-dom'
+import App from './App'
+import About from './about'
+import Contact from './contact'
+
+const routing = (
+  <Router>
+    <div>
+      <Route path="/" component={App}>
+      <Route path="/about" component={About}>
+      <Route path="/contact" component={Contact}>
+    </div>
+  </Router>
+)
+
+ReactDOM.render(routing,document.getElementById('root'))
+```
+# 8.ReactJS advantages
+
+1. Component-Based Architecture
+2. Virtual DOM for Performance Optimization
+   
+  Efficient Updates: React uses a virtual DOM to efficiently update only the parts of the actual DOM that have changed, minimizing the number of costly DOM manipulations and improving performance.
+
+  Smooth User Experience: This results in faster rendering and a smoother user experience, especially in dynamic applications with frequent updates.
+
+1. Declarative UI
+2. Unidirectional Data Flow
+3. Rich Ecosystem and Community Support
+4. Cross-Platform Development
+5. Strong Support for JSX
+6. Backed by Facebook
+7.  SEO-Friendly
+8.  Flexibility
+9.  Continuous Development and Backward Compatibility
+
+# 9. ReactJS Component
+
+Earlier, the developers write more than thousands of lines of code for developing a single page application. These applications follow the traditional DOM structure, and making changes in them was a very challenging task. If any mistake found, it manually searches the entire application and update accordingly. The component-based approach was introduced to overcome an issue. In this approach, the entire application is divided into a small logical group of code, which is known as components.
+
+A Component is considered as the core building blocks of a React application. It makes the task of building UIs much easier. Each component exists in the same space, but they work independently from one another and merge all in a parent component, which will be the final UI of your application.
+
+Every React component have their own structure, methods as well as APIs. They can be reusable as per your need. For better understanding, consider the entire UI as a tree. Here, the root is the starting component, and each of the other pieces becomes branches, which are further divided into sub-branches.
+
+![image](https://github.com/maainul/FullStackThings/assets/37740006/7e3c8042-b189-4db2-a4d9-26dadf731504)
+
+In ReactJS, we have mainly two types of components. They are
+
+1. Functional Components
+2. Class Components
+
+3. ReactJS Functional Components :
+
+### Keywords :
+
+    1. Simply JavaScript functions
+    2. Functions may or may not receive data as parameters.
+    3. The return value is the JSX code to render to the DOM tree.
+
+### index.js
+
+```jsx
+//index.js File
+import React from "react";
+import ReactDOM from "react-dom";
+import Demo from "./App";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Demo />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+```
+
+### Demo.js
+
+```jsx
+//App.js File
+import React from "react";
+import ReactDOM from "react-dom";
+
+const Demo = () => {
+  return <h1>Welcome to GeeksforGeeks</h1>;
+};
+export default Demo;
+```
+
+### Problem with using functional components
+
+1. Do not have access to dedicated state variables
+2. The problem discussed above is solved with the help of a special ReactJS concept called “hooks”.
+3. ReactJS has access to a special hook called useState().
+4. The first value returned is the initial value of the state variable, while the second value returned is a reference to the function that updates it.
+
+### index.js
+
+```JSX
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Example from './App'
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Exaple />
+  </React.StrictMode>
+  document.getElementById('root')
+)
+```
+
+### App.js
+
+```js
+//App.js File
+import React, { useState } from "react";
+
+const Example = () => {
+  const [change, setChange] = useState(true);
+  return (
+    <div>
+      <button onClick={() => setChange(!change)}>Click Here!</button>
+      {change ? (
+        <h1>Welcome to GeeksforGeeks</h1>
+      ) : (
+        <h1>A Computer Science Portal for Geeks</h1>
+      )}
+    </div>
+  );
+};
+export default Example;
+```
+![image](https://github.com/maainul/FullStackThings/assets/37740006/11c4e8fd-e138-421d-b010-d336a3334247)
+
+# 10. React Events
+
+An event is an action that could be triggered as a result of the user action or system generated event. For example, a mouse click, loading of a web page, pressing a key, window resizes, and other interactions are called events.
+
+React has its own event handling system which is very similar to handling events on DOM elements. The react event handling system is known as Synthetic Events. The synthetic event is a cross-browser wrapper of the browser's native event.
+
+![react-events](https://github.com/user-attachments/assets/d1f311c8-db3c-48fb-9a8a-b629c19b69e8)
+
+Handling events with react have some syntactic differences from handling events on DOM. These are:
+
+1. React events are named as **camelCase** instead of **lowercase**.
+2. With JSX, a function is passed as the **event handler** instead of a string. For example:
+
+**Event declaration in plain HTML:**
+```jsx
+<button onclick="showMessage()">  
+       Hello JavaTpoint  
+</button>  
+```
+**Event declaration in React:**
+```jsx
+<button onClick={showMessage}>  
+      Hello JavaTpoint  
+</button>  
+```
+3. In react, we cannot return false to prevent the default behavior. We must call preventDefault event explicitly to prevent the default behavior. For example:
+
+In plain HTML, to prevent the default link behavior of opening a new page, we can write:
+```jsx
+<a href="#" onclick="console.log('You had clicked a Link.'); return false">  
+    Click_Me  
+</a>  
+```
+In React, we can write it as:
+```jsx
+function ActionLink() {  
+    function handleClick(e) {  
+        e.preventDefault();  
+        console.log('You had clicked a Link.');  
+    }  
+    return (  
+        <a href="#" onClick={handleClick}>  
+              Click_Me  
+        </a>  
+    );  
+}  
+
+```
+
+# 11. React Fragments
+React Fragments are a useful feature that allows you to group a list of children elements without adding extra nodes to the DOM. This is particularly beneficial when you want to return multiple elements from a component without wrapping them in an additional container element, such as a div. By using fragments, you can keep your DOM clean and avoid unnecessary elements, which is especially helpful for layout styling and maintaining a lightweight DOM structure.
+
+**1. Basic Usage of Fragments**
+You can use React Fragments in two ways: with the <React.Fragment> tag or the shorthand syntax <>.
+```jsx
+const FragmentExample = () => {
+  return (
+    <React.Fragment>
+      <h1>Title</h1>
+      <p>This is a description.</p>
+    </React.Fragment>
+  );
+};
+```
+```jsx
+const FragmentExample = () => {
+  return (
+    <>
+      <h1>Title</h1>
+      <p>This is a description.</p>
+    </>
+  );
+};
+```
+```jsx
+const NestedFragments = () => {
+  return (
+    <>
+      <>
+        <h1>Header</h1>
+        <p>This is the header section.</p>
+      </>
+      <>
+        <h2>Footer</h2>
+        <p>This is the footer section.</p>
+      </>
+    </>
+  );
+};
+```
+React Fragments are a powerful tool for managing the structure of your React components. They allow you to return multiple elements from a component without adding extra DOM nodes, which helps in maintaining a clean and efficient DOM. By using fragments, you can create more flexible and maintainable layouts in your React applications.
+
+# 12. React Lists
+
+```jsx
+var numbers = [1,2,3]
+const multiplyNums = numbers.map((num)=>{
+  return (num * 5)
+})
+console.log(multiplyNums)
+```
+      [5, 10, 15, 20, 25]
+
+
+```jsx
+import React from 'react';   
+import ReactDOM from 'react-dom';   
+  
+const myList = ['Peter', 'Sachin', 'Kevin', 'Dhoni', 'Alisa'];   
+const listItems = myList.map((myList)=>{   
+    return <li>{myList}</li>;   
+});   
+ReactDOM.render(   
+    <ul> {listItems} </ul>,   
+    document.getElementById('app')   
+);   
+export default App;  
+```
+```jsx
+const ItemList = ({ items }) => {
+  return (
+    <ul>
+      {items.map(item => (
+        <li key={item.id}>{item.name}</li>
+      ))}
+    </ul>
+  );
+};
+
+const App = () => {
+  const items = [
+    { id: 1, name: 'Apple' },
+    { id: 2, name: 'Banana' },
+    { id: 3, name: 'Cherry' },
+  ];
+
+  return <ItemList items={items} />;
+};
+
+```
+
