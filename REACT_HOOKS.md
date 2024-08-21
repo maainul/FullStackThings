@@ -10,6 +10,7 @@
 8. useImperativeHandle
 9. useLayoutEffect
 10. useDebugValue
+11. usePrevious
 
 # useState Hook in React
 
@@ -572,21 +573,20 @@ function DataFetchingComponent() {
 
 export default DataFetchingComponent;
 ```
+
 ## useCallback:
 
 The useCallback hook in React is used to memoize functions so that they do not get recreated on every render. This can be useful to avoid unnecessary re-renders, especially when passing callbacks to child components.
-
 
 OR
 
 useCallback is a hook that will return a memoized verion of the callback function that only changes if one of the dependencies has changes.
 
-
 ```jsx
 import React from 'react'
 import Count form './Count'
 import Button from './Button'
-import Title from './Title' 
+import Title from './Title'
 
 function ParentComponent(){
   const [age,setAge] = useState(18)
@@ -616,31 +616,35 @@ export default ParentComponent
 ```
 
 ### Count
-```js
-import React from 'react'
 
-function Count({text,count}){
-  console.log(`Rendering ${text}`)
-  return (<div>{text} - {count}</div>)
+```js
+import React from "react";
+
+function Count({ text, count }) {
+  console.log(`Rendering ${text}`);
+  return (
+    <div>
+      {text} - {count}
+    </div>
+  );
 }
 
-export default Count
+export default Count;
 ```
 
 ### Button
-```js
-import React from 'react'
 
-function Button({handleClick,children}){
-  console.log(`Rendering Button - `,children)
-  return (
-    <button onClick={handleClick}>{children}</button>
-  )
+```js
+import React from "react";
+
+function Button({ handleClick, children }) {
+  console.log(`Rendering Button - `, children);
+  return <button onClick={handleClick}>{children}</button>;
 }
 
-export default Button 
-
+export default Button;
 ```
+
 ![Screenshot](https://github.com/user-attachments/assets/f3fff1bc-8750-4964-be26-4497f1197096)
 
 When Click increment age it will increment age that will render all the componet .
@@ -653,7 +657,7 @@ But i need a that if i only change age then age related data will be changes.
 import React,{useState,useCallback} from 'react'
 import Count form './Count'
 import Button from './Button'
-import Title from './Title' 
+import Title from './Title'
 
 function ParentComponent(){
   const [age,setAge] = useState(18)
@@ -683,9 +687,10 @@ export default ParentComponent
 
 ![Screenshot3](https://github.com/user-attachments/assets/e628a1f0-d5c7-44dc-99b6-a9c234ecd7f2)
 
-## useMemo : 
+## useMemo :
 
 ### Counter.js
+
 ```js
 import react,{useState} from 'react'
 
@@ -724,6 +729,7 @@ function Counter(){
 
 export default Counter
 ```
+
 If we render button One then it will taken time.If we use useMemo() then it will cashed value then when need then we can use it
 
 For useMemo() ==> cashed Value
@@ -731,51 +737,58 @@ For useMemo() ==> cashed Value
 useCallback() ==> cashed Function
 
 ## useRef():
+
 The useRef hook in React is used to persist values across renders without causing a re-render when the value changes. It's often used to reference DOM elements, store mutable variables, or hold previous state values.
 
 ```js
-import React,{useEffect,useRef} from 'react'
+import React, { useEffect, useRef } from "react";
 
+function FocusInput() {
+  const inputRef = useRef(null);
 
-function FocusInput(){
-  const inputRef = useRef(null)
-
-  useEffect(()=>{
-    inputRef.current.focus()
-  },[])
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   return (
     <div>
-      <input ref={inputRef} type='text' />
+      <input ref={inputRef} type="text" />
     </div>
-  )
+  );
 }
 
-export default FocusInput
+export default FocusInput;
 ```
+
 Example: Storing Previous State
 
 ```js
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-const PreviousStateExample = () => {
-    const [count, setCount] = useState(0);
-    const prevCountRef = useRef();
-
-    useEffect(() => {
-        prevCountRef.current = count;
-    }, [count]);
-
-    const prevCount = prevCountRef.current;
-
-    return (
-        <div>
-            <p>Current Count: {count}</p>
-            <p>Previous Count: {prevCount}</p>
-            <button onClick={() => setCount(count + 1)}>Increment</button>
-        </div>
-    );
+// Custom hook to implement
+const usePrevious = (value) => {
+  const previousValueRef = useRef(value);
+  useEffect(() => {
+    previousValueRef.current = value;
+  }, [value]);
+  return previousValueRef.current;
 };
 
-export default PreviousStateExample;
+const App = () => {
+  const [count, setCount] = useState(0);
+  const previousCount = usePrevious(count);
+
+  return (
+    <div>
+      <h1>Current Count: {count}</h1>
+      <h2>Previous Count: {previousCount}</h2>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </div>
+  );
+};
+
+export default App;
 ```
+
+## usePrevious :
