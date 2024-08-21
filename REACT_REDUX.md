@@ -90,3 +90,23 @@ const reducer = (state, action) => {
     - Registers listeners via subscribe(listener)
     - Handles unregistering of listeners via the function returned by subscribe(listener)
 
+## Cakes and Ice Creams!
+
+Cake Shop
+- Cakes stored on the shelf
+- Shopkeeper to handle BUY_CAKE from customers
+  
+Sell ice Creams!
+- Ice Creams stored in the freeser
+- New Shopkeeper to handle BUY_ICECREAM from customer
+  
+
+## Middleware
+Code
+## Async Actions
+Code
+
+
+
+
+npm i redux react-redux
