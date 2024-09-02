@@ -739,6 +739,41 @@ useCallback() ==> cashed Function
 ## useRef():
 
 The useRef hook in React is used to persist values across renders without causing a re-render when the value changes. It's often used to reference DOM elements, store mutable variables, or hold previous state values.
+```js
+import React, { useRef } from "react";
+
+const UseRefExample = () => {
+  const userNameRef = useRef();
+  const passwordRef = useRef();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const userName = userNameRef.current.value;
+    const password = passwordRef.current.value;
+    console.log({ userName, password });
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <lable>UserName:</lable>
+          <input type="text" id="userName" ref={userNameRef} />
+        </div>
+        <div>
+          <lable>Password:</lable>
+          <input type="text" id="passwordName" ref={passwordRef} />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
+
+export default UseRefExample;
+
+```
+Normally it will submit data to the backend
 
 ```js
 import React, { useEffect, useRef } from "react";
