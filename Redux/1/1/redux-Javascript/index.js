@@ -228,3 +228,70 @@
 // store.dispatch(getCartAction());
 // store.dispatch(addCartAction("DR"));
 // store.dispatch(addCartAction("Pr"));
+
+// async actions - API Calling
+// api url - https://jsonplaceholder.typicode.com/todos
+// middleware- redux-thunk
+// axios api
+const { default: axios } = require("axios");
+const { createStore, applyMiddleware } = require("redux");
+const reduxThunk = require("redux-thunk"); // Ensure correct import
+
+console.log("reduxThunk:", reduxThunk); // Debug middleware
+
+// Action types
+const GET_TODOS_REQUEST = "GET_TODOS_REQUEST";
+const GET_TODOS_SUCCESS = "GET_TODOS_SUCCESS";
+const GET_TODOS_FAILED = "GET_TODOS_FAILED";
+const TODOS_URL = "https://jsonplaceholder.typicode.com/todos";
+
+// Initial state
+const initialTodoState = {
+  todos: [],
+  isLoading: false,
+  error: null,
+};
+
+// Action creators
+const getTodosRequest = () => ({ type: GET_TODOS_REQUEST });
+const getTodoSuccess = (todos) => ({ type: GET_TODOS_SUCCESS, payload: todos });
+const getTodoFailed = (error) => ({ type: GET_TODOS_FAILED, payload: error });
+
+// Reducer
+const todoReducer = (state = initialTodoState, action) => {
+  switch (action.type) {
+    case GET_TODOS_REQUEST:
+      return { ...state, isLoading: true };
+    case GET_TODOS_SUCCESS:
+      return { ...state, todos: action.payload, isLoading: false };
+    case GET_TODOS_FAILED:
+      return { ...state, isLoading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+// Async action creator
+const fetchData = () => {
+  return (dispatch) => {
+    dispatch(getTodosRequest());
+    axios
+      .get(TODOS_URL)
+      .then((res) => {
+        const todos = res.data.map((todo) => todo.title);
+        dispatch(getTodoSuccess(todos));
+      })
+      .catch((err) => {
+        dispatch(getTodoFailed(err.message));
+      });
+  };
+};
+
+// Create store
+const store = createStore(todoReducer, applyMiddleware(reduxThunk)); // Ensure reduxThunk is passed correctly
+
+store.subscribe(() => {
+  console.log("State updated:", store.getState());
+});
+
+store.dispatch(fetchData());
